@@ -1,22 +1,26 @@
 ﻿
 
+using Enums;
+
 namespace Armors
 {
     public abstract class Armor
     {
-        private string armorName;
+        
+        private ArmorKind armorKind;
 
         private int armorPoints;
+        private int dodge;
 
-        public string ArmorName
-        {
+        public ArmorKind ArmorKind 
+        { 
             get
             {
-                return this.armorName;
+                return this.armorKind;
             }
             protected set
             {
-                this.armorName = value;
+                this.armorKind = value;
             }
         }
 
@@ -31,16 +35,33 @@ namespace Armors
                 this.armorPoints = value;
             }
         }
-
+        public int Dodge 
+        { 
+            get
+            {
+                return this.dodge;
+            }
+            protected set
+            {
+                this.dodge = value;
+            }
+        }
+        
         public Armor()
         {
 
         }
-
-        public Armor(string armorName, int armorPoints)
+        
+        public Armor(ArmorKind armorKind, int armorPoints, int dodge)
         {
-            this.ArmorName = armorName;
+            this.ArmorKind = armorKind;
             this.ArmorPoints = armorPoints;
+            this.Dodge = dodge;
         }
+        
+
+            
+
+       
     }
 }

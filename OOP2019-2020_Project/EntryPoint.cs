@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Characters;
+using Characters.MainChar;
+using Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Weapons.SharpWeapons;
+
 
 namespace OOP2019_2020_Project
 {
@@ -11,7 +14,13 @@ namespace OOP2019_2020_Project
     {
         static void Main()
         {
-            LongSword sword = new LongSword();
+            Gladiator one = new Gladiator();
+
+            while(!one.IsAlive)
+            {
+                Console.WriteLine("Hit");
+            }
+
 
             Console.ReadLine();
         }

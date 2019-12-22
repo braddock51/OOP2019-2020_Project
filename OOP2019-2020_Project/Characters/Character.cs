@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Armors;
+using System;
+using Weapons;
 
 namespace Characters
 {
@@ -8,6 +10,12 @@ namespace Characters
 
         private int abilityPoints;
         private int healthPoints;
+        private int level;
+
+        private Armor chestArmor;
+        private Weapon armWeapon;
+
+        private bool isAlive;
 
         public string Name
         {
@@ -46,6 +54,60 @@ namespace Characters
                     this.healthPoints = value;
             }
         }
+        public int Level 
+        { 
+            get
+            {
+                return this.level;
+            }
+            set
+            {
+                if (value > 5)
+                    throw new ArgumentOutOfRangeException(string.Empty, "Maximum level is 5");
+                else if(value < 0)
+                    throw new ArgumentOutOfRangeException(string.Empty, "Level can't be lesser then 0");
+                else
+                    this.level = value;
+            }
+        }
+
+        public Armor ChestArmor 
+        { 
+            get
+            {
+                return this.chestArmor;
+            }
+            set
+            {
+                this.chestArmor = value;
+            }
+        }
+        public Weapon ArmWeapon
+        { 
+            get
+            {
+                return this.armWeapon;
+            }
+            set
+            {
+                this.armWeapon = value;
+            }
+        }
+
+        public bool IsAlive
+        { 
+            get
+            {
+                return this.isAlive;
+            }
+            private set
+            {
+                if (this.HealthPoints == 0)
+                    this.isAlive = false;
+                else
+                    this.isAlive = true;
+            }
+        }
 
         public Character()
         {
@@ -55,8 +117,11 @@ namespace Characters
         public Character(string name, int abilityPoints, int healthPoints)
         {
             this.Name = name;
-            this.abilityPoints = abilityPoints;
-            this.healthPoints = healthPoints;
+            this.AbilityPoints = abilityPoints;
+            this.HealthPoints = healthPoints;
+            this.level = 0;
+            
+            
         }
     }
 }
