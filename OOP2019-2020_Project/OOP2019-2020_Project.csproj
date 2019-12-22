@@ -64,7 +64,8 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Interfaces\IActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Weapons\SwordWeapon\LongSword.cs" />
+    <Compile Include="Weapons\SharpWeapons\LongSword.cs" />
+    <Compile Include="Weapons\SharpWeapons\SharpWeapon.cs" />
     <Compile Include="Weapons\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>

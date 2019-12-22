@@ -5,6 +5,7 @@ namespace Weapons
     public abstract class Weapon
     {
         private string weaponName;
+        private string weaponKind;
 
         private int damage;
 
@@ -17,6 +18,17 @@ namespace Weapons
             protected set
             {
                 this.weaponName = value;
+            }
+        }
+        public string WeaponKind 
+        { 
+            get
+            {
+                return this.weaponKind;
+            }
+            protected set
+            {
+                this.weaponKind = value;
             }
         }
 
@@ -37,10 +49,6 @@ namespace Weapons
 
         }
 
-        public Weapon(string weaponName, int damage)
-        {
-            this.WeaponName = weaponName;
-            this.Damage = damage;
-        }
+       
     }
 }

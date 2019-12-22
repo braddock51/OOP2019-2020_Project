@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP2019_2020_Project.Weapons.SwordWeapon
+namespace OOP2019_2020_Project.Characters.Melees
 {
-    class LongSword
+    class Gladiator
     {
     }
 }
