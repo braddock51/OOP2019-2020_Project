@@ -62,12 +62,20 @@
     <Compile Include="Armors\BreastPlate.cs" />
     <Compile Include="Armors\FullPlateArmor.cs" />
     <Compile Include="Armors\LeatherArmor.cs" />
-    <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\MainChar\Gladiator.cs" />
+    <Compile Include="Characters\Opponents\Opponent.cs" />
+    <Compile Include="Characters\Opponents\Wolf.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Enums\ArmorKind.cs" />
-    <Compile Include="Interfaces\IActions.cs" />
+    <Compile Include="Enums\WeaponKind.cs" />
+    <Compile Include="Interfaces\IAttack.cs" />
+    <Compile Include="Interfaces\ICharge.cs" />
+    <Compile Include="Interfaces\IDefend.cs" />
+    <Compile Include="Interfaces\IOpponentSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weapons\Hammer.cs" />
+    <Compile Include="Weapons\Hatchet.cs" />
+    <Compile Include="Weapons\LongSword.cs" />
     <Compile Include="Weapons\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>

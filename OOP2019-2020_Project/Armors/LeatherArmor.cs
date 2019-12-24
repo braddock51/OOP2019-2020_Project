@@ -12,5 +12,10 @@ namespace Armors
         {
 
         }
+
+        public override string ToString()
+        {
+            return "Leather Armor";
+        }
     }
 }

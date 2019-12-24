@@ -1,26 +1,17 @@
 ﻿
 
+using Enums;
+
 namespace Weapons
 {
     public abstract class Weapon
     {
-        private string weaponName;
-        private string weaponKind;
-
+        private WeaponKind weaponKind;
+        
         private int damage;
+        private int critical;
 
-        public string WeaponName
-        {
-            get
-            {
-                return this.weaponName;
-            }
-            protected set
-            {
-                this.weaponName = value;
-            }
-        }
-        public string WeaponKind 
+        public WeaponKind KindOfWeapon 
         { 
             get
             {
@@ -43,12 +34,28 @@ namespace Weapons
                 this.damage = value;
             }
         }
+        public int Critical 
+        { 
+            get
+            {
+                return this.critical;
+            }
+            protected set
+            {
+                this.critical = value;
+            }
+        }
 
         public Weapon()
         {
 
         }
 
-       
+        protected Weapon(WeaponKind kindOfWeapon, int damage, int critical)
+        {
+            this.KindOfWeapon = kindOfWeapon;
+            this.Damage = damage;
+            this.Critical = critical;
+        }
     }
 }
