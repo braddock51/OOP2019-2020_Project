@@ -14,12 +14,7 @@ namespace OOP2019_2020_Project
     {
         static void Main()
         {
-            Gladiator one = new Gladiator();
-
-            while(!one.IsAlive)
-            {
-                Console.WriteLine("Hit");
-            }
+            
 
 
             Console.ReadLine();

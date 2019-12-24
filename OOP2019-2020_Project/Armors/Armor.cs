@@ -12,7 +12,7 @@ namespace Armors
         private int armorPoints;
         private int dodge;
 
-        public ArmorKind ArmorKind 
+        public ArmorKind KindOfWeapon 
         { 
             get
             {
@@ -54,7 +54,7 @@ namespace Armors
         
         public Armor(ArmorKind armorKind, int armorPoints, int dodge)
         {
-            this.ArmorKind = armorKind;
+            this.KindOfWeapon = armorKind;
             this.ArmorPoints = armorPoints;
             this.Dodge = dodge;
         }
