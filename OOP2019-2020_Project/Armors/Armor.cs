@@ -30,7 +30,7 @@ namespace Armors
             {
                 return this.armorPoints;
             }
-            protected set
+            set
             {
                 this.armorPoints = value;
             }
@@ -41,7 +41,7 @@ namespace Armors
             {
                 return this.dodge;
             }
-            protected set
+            set
             {
                 this.dodge = value;
             }

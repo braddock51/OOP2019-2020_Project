@@ -19,9 +19,9 @@ namespace Characters.Opponents
             {
                 return this.abilityPoints;
             }
-            private set
+            protected set
             {
-                this.abilityPoints = 10;
+                this.abilityPoints = value;
             }
         }
         public int HealthPoints
@@ -30,7 +30,7 @@ namespace Characters.Opponents
             {
                 return this.healthPoints;
             }
-            protected set
+            set
             {
                 if (value < 0 || value > 100)
                     throw new ArgumentOutOfRangeException(string.Empty, "Health points can't be lower then 0 or higher then 100");

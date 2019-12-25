@@ -71,6 +71,7 @@
     <Compile Include="Interfaces\IAttack.cs" />
     <Compile Include="Interfaces\ICharge.cs" />
     <Compile Include="Interfaces\IDefend.cs" />
+    <Compile Include="Interfaces\IOpponentAttack.cs" />
     <Compile Include="Interfaces\IOpponentSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weapons\Hammer.cs" />

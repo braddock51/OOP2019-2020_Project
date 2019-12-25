@@ -1,13 +1,18 @@
 ﻿
 using Armors;
+using Characters.Opponents;
 using Interfaces;
 using System;
 using Weapons;
 
 namespace Characters.MainChar
 {
-    public class Gladiator : IAttack, IDefend, ICharge
+    public class Gladiator : IAttack, ICharge, IDefend
     {
+        public const int DEFAULT_GLADIATOR_ABILITY_POINTS = 10;
+        public const int DEFAULT_GLADIATOR_HEALTH_POINTS = 30;
+        
+        
         private string name;
 
         private int abilityPoints;
@@ -39,7 +44,7 @@ namespace Characters.MainChar
             }
             private set
             {
-                this.abilityPoints = 10;
+                this.abilityPoints = value;
             }
         }
         public int HealthPoints
@@ -48,7 +53,7 @@ namespace Characters.MainChar
             {
                 return this.healthPoints;
             }
-            protected set
+            set
             {
                 if (value < 0 || value > 100)
                     throw new ArgumentOutOfRangeException(string.Empty, "Health points can't be lower then 0 or higher then 100");
@@ -116,30 +121,31 @@ namespace Characters.MainChar
 
         }
 
-        public Gladiator(string name, int abilityPoints, int healthPoints)
+        public Gladiator(string name)
         {
             this.Name = name;
-            this.AbilityPoints = abilityPoints;
-            this.HealthPoints = healthPoints;
+            this.AbilityPoints = DEFAULT_GLADIATOR_ABILITY_POINTS;
+            this.HealthPoints = DEFAULT_GLADIATOR_HEALTH_POINTS;
             this.level = 1;
             this.IsAlive = true;
 
 
         }
 
-        public void Attack()
+        public void Attack(Opponent enemy)
         {
-            throw new NotImplementedException();
+            enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage;
+            this.AbilityPoints--;
         }
 
         public void Defend()
         {
-            throw new NotImplementedException();
+            this.ChestArmor.ArmorPoints++;
         }
 
         public void Charge()
         {
-            throw new NotImplementedException();
+            this.AbilityPoints++;
         }
     }
 }

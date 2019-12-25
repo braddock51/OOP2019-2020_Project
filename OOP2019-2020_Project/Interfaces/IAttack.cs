@@ -1,9 +1,13 @@
 ﻿
 
+
+
+using Characters.Opponents;
+
 namespace Interfaces
 {
     public interface IAttack
     {
-        void Attack();
+        void Attack(Opponent enemy);
     }
 }

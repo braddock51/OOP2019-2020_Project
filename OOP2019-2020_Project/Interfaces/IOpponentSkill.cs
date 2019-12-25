@@ -1,9 +1,11 @@
 ﻿
 
+using Characters.MainChar;
+
 namespace Interfaces
 {
     public interface IOpponentSkill
     {
-        void Skill();
+        void Skill(Gladiator gladiator);
     }
 }
