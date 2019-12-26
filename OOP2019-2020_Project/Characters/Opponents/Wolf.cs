@@ -3,6 +3,7 @@
 using Characters.MainChar;
 using Interfaces;
 using System;
+using Utilities;
 
 namespace Characters.Opponents
 {
@@ -50,6 +51,11 @@ namespace Characters.Opponents
         public void Skill(Gladiator gladiator)
         {
             this.ClawRage(gladiator);
+        }
+
+        public override string ToString()
+        {
+            return "Wolf";
         }
     }
 }

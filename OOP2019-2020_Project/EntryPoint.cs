@@ -33,15 +33,15 @@ namespace OOP2019_2020_Project
                 {
                     case 1:
                         glad.Attack(wolfie);
-                        Console.WriteLine($"Wolf health is {wolfie.HealthPoints}");
+                        
                         break;
                     case 2:
                         glad.Defend();
-                        Console.WriteLine($"Glad armor is {glad.ChestArmor.ArmorPoints}");
+                        
                         break;
                     case 3:
                         glad.Charge();
-                        Console.WriteLine($"Glad AbilityPoints is {glad.AbilityPoints}");
+                        
                         break;
                        
                 }

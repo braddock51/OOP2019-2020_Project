@@ -4,11 +4,14 @@ using Characters.Opponents;
 using Interfaces;
 using System;
 using Weapons;
+using Utilities;
 
 namespace Characters.MainChar
 {
     public class Gladiator : IAttack, ICharge, IDefend
     {
+        Random rnd = new Random();
+
         public const int DEFAULT_GLADIATOR_ABILITY_POINTS = 10;
         public const int DEFAULT_GLADIATOR_HEALTH_POINTS = 30;
         
@@ -134,8 +137,37 @@ namespace Characters.MainChar
 
         public void Attack(Opponent enemy)
         {
-            enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage;
-            this.AbilityPoints--;
+            int criticalRnd = rnd.Next(0, 26);
+            
+
+            for (int i = 0; i <= this.ArmWeapon.Critical; i++)
+            {
+                if(criticalRnd >= 0 && criticalRnd <= this.ArmWeapon.Critical)
+                {
+                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 2;
+                    this.AbilityPoints--;
+                    Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 2} to {enemy.ToString()}\n\n" +
+                        $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
+                        $"Your ability points decreased by 1\n\n" +
+                        $"Now you have {this.AbilityPoints} ability points", ConsoleColor.Green);
+                    break;
+                    
+                    
+                }
+                else
+                {
+                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage;
+                    this.AbilityPoints--;
+                    Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
+                        $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
+                        $"Your ability points decreased by 1\n\n" +
+                        $"Now you have {this.AbilityPoints} ability points", ConsoleColor.Green);
+                    break;
+                }
+            }
+            
+            
+           
         }
 
         public void Defend()
