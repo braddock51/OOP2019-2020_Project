@@ -5,6 +5,7 @@ using Armors;
 using Characters.MainChar;
 using Characters.Opponents;
 using System;
+using Utilities;
 using Weapons;
 
 namespace OOP2019_2020_Project
@@ -20,7 +21,7 @@ namespace OOP2019_2020_Project
             glad.ArmWeapon = new LongSword();
             glad.ChestArmor = new BreastPlate();
 
-            while(glad.IsAlive || wolfie.IsAlive)
+            while(glad.IsAlive && wolfie.IsAlive)
             {
                 Console.WriteLine("Gladiator turn:\n" +
                     "1. Attack\n" +
@@ -72,6 +73,18 @@ namespace OOP2019_2020_Project
                         break;
 
 
+                }
+                if(glad.HealthPoints == 0)
+                {
+                    glad.IsAlive = false;
+                    Tools.ColorfulWriteLine($"{wolfie.ToString()} defeat you.\n" +
+                        $"You DIED", ConsoleColor.Red);
+                }
+                else if(wolfie.HealthPoints == 0)
+                {
+                    glad.IsAlive = false;
+                    Tools.ColorfulWriteLine($"You defeat {wolfie.ToString()}.\n\n" +
+                        $"{glad.Name} is victorious", ConsoleColor.Green);
                 }
             }
 

@@ -1,10 +1,13 @@
 ﻿
 
+using Characters.MainChar;
+using Interfaces;
 using System;
+using Utilities;
 
 namespace Characters.Opponents
 {
-    public abstract class Opponent
+    public abstract class Opponent : IOpponentAttack, IDefend, ICharge
     {
         private int abilityPoints;
         private int healthPoints;
@@ -77,6 +80,25 @@ namespace Characters.Opponents
             this.Damage = damage;
             this.IsAlive = true;
         }
-        
+
+        public void Attack(Gladiator gladiator)
+        {
+            gladiator.HealthPoints = gladiator.HealthPoints - this.Damage;
+            this.AbilityPoints--;
+            Tools.ColorfulWriteLine($"{this.ToString()} hit {gladiator.Name} for {this.Damage}\n\n" +
+                $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
+                $"{this.ToString()} ability points decreased by 1\n\n" +
+                $"{this.ToString()} abilitiy points is equal to {this.AbilityPoints}", ConsoleColor.Red);
+        }
+
+        public void Defend()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Charge()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

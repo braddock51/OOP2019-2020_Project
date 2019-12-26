@@ -110,7 +110,7 @@ namespace Characters.MainChar
             {
                 return this.isAlive;
             }
-            private set
+            set
             {
                 if (this.HealthPoints == 0)
                     this.isAlive = false;
@@ -137,8 +137,8 @@ namespace Characters.MainChar
 
         public void Attack(Opponent enemy)
         {
-            int criticalRnd = rnd.Next(0, 26);
-            
+            int criticalRnd = rnd.Next(0, 21);
+            Tools.ColorfulWriteLine($"{criticalRnd} LOS", ConsoleColor.Blue);
 
             for (int i = 0; i <= this.ArmWeapon.Critical; i++)
             {
@@ -161,7 +161,7 @@ namespace Characters.MainChar
                     Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
                         $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
                         $"Your ability points decreased by 1\n\n" +
-                        $"Now you have {this.AbilityPoints} ability points", ConsoleColor.Green);
+                        $"Now you have {this.AbilityPoints} ability points\n\n", ConsoleColor.Green);
                     break;
                 }
             }
