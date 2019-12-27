@@ -50,8 +50,9 @@ namespace OOP2019_2020_Project
                 Tools.ColorfulWriteLine("                                  __          _  ___     ___ _   _    \n" +
                                         "  /\\  ._ ._ _        _      ._   /__ |   /\\  | \\  |   /\\  | / \\ |_)  \n" +
                                         " /--\\ |  | | |   \\/ (_) |_| |    \\_| |_ /--\\ |_/ _|_ /--\\ | \\_/ | \\  \n" +
-                                        "                 /                                                    ", ConsoleColor.White);
-                Thread.Sleep(1000);
+                                        "                 /                                                    ", ConsoleColor.DarkRed);
+                Thread.Sleep(1500);
+                Console.Clear();
 
                 string weaponSelect = null;
                 while(weaponSelect != "a" && weaponSelect != "b" && weaponSelect != "c")
@@ -74,13 +75,13 @@ namespace OOP2019_2020_Project
                                             "    /                              \n\n" +
                                             "  _ \\    |_|  _. ._ _  ._ _   _  ._ \n" +
                                             " (_  |   | | (_| | | | | | | (/_ |  \n" +
-                                            "    /                               \n\n", ConsoleColor.White);
+                                            "    /                               \n\n\n\n\n", ConsoleColor.White);
                     weaponSelect = Console.ReadLine();
                     Thread.Sleep(1000);
-                    Console.Clear();
+                    
 
                 }
-
+                
                 switch (weaponSelect)
                 {
                     case "a":
@@ -93,6 +94,41 @@ namespace OOP2019_2020_Project
                         glad.ArmWeapon = new Hammer();
                         break;
                 }
+
+                string armorSelect = null;
+                while (armorSelect != "a" && armorSelect != "b" && armorSelect != "c")
+                {
+                    Tools.ColorfulWriteLine("  /\\  ._ ._ _   _  ._ _ o \n" +
+                                            " /--\\ |  | | | (_) | _> o \n" +
+                                            "\n\n\n\n" +
+                                            "           _         _                 \n" +
+                                            "  _. \\    |_    | | |_) |   _. _|_  _  \n" +
+                                            " (_|  |   | |_| | | |   |_ (_|  |_ (/_ \n" +
+                                            "    /                                 \n\n" +
+                                            "          _                    _                \n" +
+                                            " |_ \\    |_) ._ _   _.  _ _|_ |_) |  _. _|_  _  \n" +
+                                            " |_) |   |_) | (/_ (_| _>  |_ |   | (_|  |_ (/_ \n" +
+                                            "    /                                           \n\n" +
+                                            "  _ \\    |   _   _. _|_ |_   _  ._ \n" +
+                                            " (_  |   |_ (/_ (_|  |_ | | (/_ |  \n" +
+                                            "    /                              \n", ConsoleColor.White);
+                    armorSelect = Console.ReadLine();
+                }
+
+                switch (armorSelect)
+                {
+                    case "a":
+                        glad.ChestArmor = new FullPlateArmor();
+                        break;
+                    case "b":
+                        glad.ChestArmor = new BreastPlate();
+                        break;
+                    case "c":
+                        glad.ChestArmor = new LeatherArmor();
+                        break;
+                }
+
+
 
 
                 gameOver = true; 
