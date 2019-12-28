@@ -9,6 +9,8 @@ namespace Characters.Opponents
 {
     public abstract class Opponent : IOpponentAttack, IDefend, ICharge
     {
+        Random rnd = new Random();
+        
         private int abilityPoints;
         private int healthPoints;
         private int damage;
@@ -63,8 +65,7 @@ namespace Characters.Opponents
             {
                 if (this.HealthPoints == 0)
                     this.isAlive = false;
-                else
-                    this.isAlive = true;
+                this.isAlive = value;
             }
         }
 
@@ -79,27 +80,37 @@ namespace Characters.Opponents
             this.HealthPoints = healthPoints;
             this.Damage = damage;
             this.IsAlive = true;
+            
         }
 
         public void Attack(Gladiator gladiator)
         {
-            gladiator.HealthPoints = gladiator.HealthPoints + gladiator.ChestArmor.ArmorPoints - this.Damage;
-            this.AbilityPoints--;
-            Tools.ColorfulWriteLine($"{this.ToString()} hit {gladiator.Name} for {this.Damage}\n\n" +
-                $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
-                $"{this.ToString()} ability points decreased by 1\n\n" +
-                $"{this.ToString()} abilitiy points is equal to {this.AbilityPoints}", ConsoleColor.Red);
+            int los = rnd.Next(1, 21);
+
+            if (gladiator.ChestArmor.Dodge <= los)
+                Tools.ColorfulWriteLine($"{gladiator.Name} dodge wolf attack.\n\n", ConsoleColor.Green);
+
+            else
+            {
+                gladiator.HealthPoints = gladiator.HealthPoints + gladiator.ChestArmor.ArmorPoints - this.Damage;
+                this.AbilityPoints--;
+                Tools.ColorfulWriteLine($"{this.ToString()} hit {gladiator.Name} for {this.Damage}\n\n" +
+                    $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
+                    $"{this.ToString()} ability points decreased by 1\n\n" +
+                    $"{this.ToString()} abilitiy points is equal to {this.AbilityPoints}\n\n", ConsoleColor.Red);
+
+            }
         }
 
         public void Defend()
         {
-            Tools.ColorfulWriteLine($"{this.ToString()} is in defending pose, his health is increased by 1", ConsoleColor.Red);
+            Tools.ColorfulWriteLine($"{this.ToString()} is in defending pose, his health is increased by 1\n\n", ConsoleColor.Red);
             this.HealthPoints++;
         }
 
         public void Charge()
         {
-            Tools.ColorfulWriteLine($"{this.ToString()} is walked away a bit to charge up, his ability points is increased by 1", ConsoleColor.Red);
+            Tools.ColorfulWriteLine($"{this.ToString()} is walked away a bit to charge up, his ability points is increased by 1\n\n", ConsoleColor.Red);
             this.AbilityPoints++;
         }
     }

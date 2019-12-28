@@ -112,8 +112,7 @@ namespace Characters.MainChar
             {
                 if (this.HealthPoints == 0)
                     this.isAlive = false;
-                else
-                    this.isAlive = true;
+                this.isAlive = value;
             }
         }
 
@@ -131,11 +130,12 @@ namespace Characters.MainChar
             this.IsAlive = true;
 
 
+
         }
 
         public void Attack(Opponent enemy)
         {
-            int criticalRnd = rnd.Next(0, 21);
+            int criticalRnd = rnd.Next(1, 21);
             Tools.ColorfulWriteLine($"{criticalRnd} LOS", ConsoleColor.Blue);
 
             for (int i = 0; i <= this.ArmWeapon.Critical; i++)

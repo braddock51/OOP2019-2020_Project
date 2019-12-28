@@ -138,9 +138,9 @@ namespace OOP2019_2020_Project
                 {
                     
                     Tools.ColorfulWriteLine(" ___                                                                                                                  \n" +
-                                      "  |    ._   _    /|   _|_  _     _ |_   _   _ |        _      ._    _  |  _.  _| o  _. _|_  _  ._    _ _|_  _. _|_  _ \n" +
-                                      "  | \\/ |_) (/_    |    |_ (_)   (_ | | (/_ (_ |<   \\/ (_) |_| |    (_| | (_| (_| | (_|  |_ (_) |    _>  |_ (_|  |_ _> \n" +
-                                      "    /  |                                           /                _|                                                \n\n\n", ConsoleColor.Magenta);
+                                            "  |    ._   _    /|   _|_  _     _ |_   _   _ |        _      ._    _  |  _.  _| o  _. _|_  _  ._    _ _|_  _. _|_  _ \n" +
+                                            "  | \\/ |_) (/_    |    |_ (_)   (_ | | (/_ (_ |<   \\/ (_) |_| |    (_| | (_| (_| | (_|  |_ (_) |    _>  |_ (_|  |_ _> \n" +
+                                            "    /  |                                           /                _|                                                \n\n\n", ConsoleColor.Magenta);
 
                     Tools.ColorfulWriteLine(" ___             _               __ ___      _ ___    __            _ \n" +
                                             "  |    ._   _     )   _|_  _    (_   |  /\\  |_) |    /__  /\\  |\\/| |_ \n" +
@@ -157,6 +157,87 @@ namespace OOP2019_2020_Project
                         startSelect = null;
                         Console.Clear();
                     }
+                    if (startSelect == "2")
+                        break;
+                }
+
+
+                Tools.ColorfulWriteLine("                               @@@  @@@  @@@ @@@@@@@@ @@@       @@@@@@@  @@@@@@  @@@@@@@@@@  @@@@@@@@\n" +
+                                        "                               @@!  @@!  @@! @@!      @@!      !@@      @@!  @@@ @@! @@! @@! @@!     \n" +
+                                        "                               @!!  !!@  @!@ @!!!:!   @!!      !@!      @!@  !@! @!! !!@ @!@ @!!!:!  \n" +
+                                        "                                !:  !!:  !!  !!:      !!:      :!!      !!:  !!! !!:     !!: !!:     \n" +
+                                        "                                 ::.:  :::   : :: ::: : ::.: :  :: :: :  : :. :   :      :   : :: :::\n\n\n\n", ConsoleColor.Red);
+
+                Tools.ColorfulWriteLine("                           , .  .   ,---. .  . ,--.    ,-.  ,-.  ,    ,     ,-.   ,-.  .  . ,--. .   , \n" +
+                                        "                           | |\\ |     |   |  | |      /    /   \\ |    |    /   \\ (   ` |  | |    |\\ /| \n" +
+                                        "                           | | \\|     |   |--| |-     |    |   | |    |    |   |  `-.  |  | |-   | V | \n" +
+                                        "                           | |  |     |   |  | |      \\    \\   / |    |    \\   / .   ) |  | |    |   | \n" +
+                                        "                           ' '  '     '   '  ' `--'    `-'  `-'  `--' `--'  `-'   `-'  `--` `--' '   ' \n\n\n\n", ConsoleColor.DarkYellow);
+
+                Tools.ColorfulWriteLine("                                                  PREPARE FOR THE BATTLE\n\n\n\n", ConsoleColor.Blue);
+
+                Tools.ColorfulWriteLine("              _   _ ____ _  _ ____    ____ _ ____ ____ ___    ____ ___  ___  ____ _  _ ____ _  _ ___    _ ____    \n" +
+                                        "               \\_/  |  | |  | |__/    |___ | |__/ [__   |     |  | |__] |__] |  | |\\ | |___ |\\ |  |     | [__     \n" +
+                                        "                |   |__| |__| |  \\    |    | |  \\ ___]  |     |__| |    |    |__| | \\| |___ | \\|  |     | ___] ...\n", ConsoleColor.Cyan);
+                Thread.Sleep(3000);
+                Console.Clear();
+
+                Tools.ColorfulWriteLine("                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
+                                        "                                           █   █      █ █      █ █    █     █  ▄▀  ▀▄ \n" +
+                                        "                                             █        █ █      █     █      █▄▄▄▄   \n" +
+                                        "                                             █   ▄    █  ▀▄    ▄▀     █       █       \n" +
+                                        "                                              ▀▄▀ ▀▄ ▄▀    ▀▀▀▀     ▄▀▄▄▄▄▄▄▀ █        \n" +
+                                        "                                                    ▀               █        █         \n" +
+                                        "                                                                                     ", ConsoleColor.DarkGray);
+
+                Tools.ColorfulWriteLine("                            .d$$b      \n" +
+                                        "                          .' TO$;\\     \n" +
+                                        "                         /  : TP._;    \n" +
+                                        "                        / _.;  :Tb|    \n" +
+                                        "                       /   /   ;j$j    \n" +
+                                        "                   _.-'       d$$$$    \n" +
+                                        "                 .' ..       d$$$$;    \n" +
+                                        "                /  /P'      d$$$$P. |\\ \n" +
+                                        "               /   '      .d$$$P' |\\^'l                                            PRESS ANY KEY TO START FIGHT\n" +
+                                        "             .'           `T$P^'''''  :\n" +
+                                        "         ._.'      _.'                ;\n" +
+                                        "      `-.-'.-'-' ._.       _.-'    .-' \n" +
+                                        "    `.-' _____  ._              .-'    \n" +
+                                        "   -(.g$$$$$$$b.              .'       \n" +
+                                        "     ''^^T$$$P^)            .(:        \n" +
+                                        "       _/  -'  /.'         /:/;        \n" +
+                                        "    ._.'-'`-'  ')/         /;/;        \n" +
+                                        " `-.-'..--''   ' /         /  ;        \n" +
+                                        ".-' ..--''        -'          :        \n" +
+                                        "..--''--.-'         (\\      .-(\\       \n" +
+                                        "  ..--''              `-\\(\\/;`         \n" +
+                                        "    _.                      :          \n" +
+                                        "                            ;`-        \n" +
+                                        "                           :\\          \n" +
+                                        "                           ;           \n", ConsoleColor.Gray);
+
+                Console.ReadKey();
+                Console.Clear();
+
+
+
+
+
+                Wolf wolfie = new Wolf();
+                int roundCounter = 0;
+                while(glad.IsAlive && wolfie.IsAlive)
+                {
+                    roundCounter++;
+
+                    Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
+                                      $"Make your move:\n\n" +
+                                      $"1. ATTACK\n" +
+                                      $"2. DEFENCE\n" +
+                                      $"3. CHARGE\n");
+
+
+
+
                 }
 
                 

@@ -19,8 +19,8 @@ namespace Characters.Opponents
 
         private void ClawRage(Gladiator gladiator)
         {
-            Console.Write("Wolf use ClawRage\n" +
-                "He jump to you with his sharp claws");
+            Tools.ColorfulWriteLine("Wolf use ClawRage\n" +
+                "He jump to you with his sharp claws\n\n", ConsoleColor.DarkRed);
             base.Damage += 2;
             base.AbilityPoints -= 5;
             base.Attack(gladiator);
