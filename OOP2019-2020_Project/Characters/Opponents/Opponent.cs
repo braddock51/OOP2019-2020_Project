@@ -83,7 +83,7 @@ namespace Characters.Opponents
 
         public void Attack(Gladiator gladiator)
         {
-            gladiator.HealthPoints = gladiator.HealthPoints - this.Damage;
+            gladiator.HealthPoints = gladiator.HealthPoints + gladiator.ChestArmor.ArmorPoints - this.Damage;
             this.AbilityPoints--;
             Tools.ColorfulWriteLine($"{this.ToString()} hit {gladiator.Name} for {this.Damage}\n\n" +
                 $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
@@ -93,12 +93,14 @@ namespace Characters.Opponents
 
         public void Defend()
         {
-            throw new NotImplementedException();
+            Tools.ColorfulWriteLine($"{this.ToString()} is in defending pose, his health is increased by 1", ConsoleColor.Red);
+            this.HealthPoints++;
         }
 
         public void Charge()
         {
-            throw new NotImplementedException();
+            Tools.ColorfulWriteLine($"{this.ToString()} is walked away a bit to charge up, his ability points is increased by 1", ConsoleColor.Red);
+            this.AbilityPoints++;
         }
     }
 }

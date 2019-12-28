@@ -45,6 +45,7 @@ namespace OOP2019_2020_Project
                                         " \\_| | \\/ (/_    |_ | | (/_   | | (_| | | | (/_ o \n", ConsoleColor.White);
                 string name = Console.ReadLine();
                 Gladiator glad = new Gladiator(name);
+                GladiatorInfo.GladiatorInitialize(glad);
                 Console.Clear();
 
                 Tools.ColorfulWriteLine("                                  __          _  ___     ___ _   _    \n" +
@@ -77,7 +78,8 @@ namespace OOP2019_2020_Project
                                             " (_  |   | | (_| | | | | | | (/_ |  \n" +
                                             "    /                               \n\n\n\n\n", ConsoleColor.White);
                     weaponSelect = Console.ReadLine();
-                    Thread.Sleep(1000);
+                    
+                    Console.Clear();
                     
 
                 }
@@ -113,6 +115,7 @@ namespace OOP2019_2020_Project
                                             " (_  |   |_ (/_ (_|  |_ | | (/_ |  \n" +
                                             "    /                              \n", ConsoleColor.White);
                     armorSelect = Console.ReadLine();
+                    Console.Clear();
                 }
 
                 switch (armorSelect)
@@ -127,6 +130,47 @@ namespace OOP2019_2020_Project
                         glad.ChestArmor = new LeatherArmor();
                         break;
                 }
+
+                GladiatorInfo.UpdateFullInfo(glad);
+
+                string startSelect = null;
+                while(startSelect != "1" && startSelect != "2")
+                {
+                    
+                    Tools.ColorfulWriteLine(" ___                                                                                                                  \n" +
+                                      "  |    ._   _    /|   _|_  _     _ |_   _   _ |        _      ._    _  |  _.  _| o  _. _|_  _  ._    _ _|_  _. _|_  _ \n" +
+                                      "  | \\/ |_) (/_    |    |_ (_)   (_ | | (/_ (_ |<   \\/ (_) |_| |    (_| | (_| (_| | (_|  |_ (_) |    _>  |_ (_|  |_ _> \n" +
+                                      "    /  |                                           /                _|                                                \n\n\n", ConsoleColor.Magenta);
+
+                    Tools.ColorfulWriteLine(" ___             _               __ ___      _ ___    __            _ \n" +
+                                            "  |    ._   _     )   _|_  _    (_   |  /\\  |_) |    /__  /\\  |\\/| |_ \n" +
+                                            "  | \\/ |_) (/_   /_    |_ (_)   __)  | /--\\ | \\ |    \\_| /--\\ |  | |_ \n" +
+                                            "    /  |                                                              \n\n\n", ConsoleColor.Red);
+                    startSelect = Console.ReadLine();
+                    Console.Clear();
+
+                    if(startSelect == "1")
+                    {
+                        GladiatorInfo.PrintFullInfo();
+                        Thread.Sleep(3000);
+
+                        startSelect = null;
+                        Console.Clear();
+                    }
+                }
+
+                
+
+                
+                 
+
+
+
+
+
+
+
+
 
 
 

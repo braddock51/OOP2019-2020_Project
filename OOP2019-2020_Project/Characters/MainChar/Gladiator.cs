@@ -12,8 +12,6 @@ namespace Characters.MainChar
     {
         Random rnd = new Random();
 
-        public const int DEFAULT_GLADIATOR_ABILITY_POINTS = 10;
-        public const int DEFAULT_GLADIATOR_HEALTH_POINTS = 30;
         
         
         private string name;
@@ -45,7 +43,7 @@ namespace Characters.MainChar
             {
                 return this.abilityPoints;
             }
-            private set
+            set
             {
                 this.abilityPoints = value;
             }
@@ -127,8 +125,8 @@ namespace Characters.MainChar
         public Gladiator(string name)
         {
             this.Name = name;
-            this.AbilityPoints = DEFAULT_GLADIATOR_ABILITY_POINTS;
-            this.HealthPoints = DEFAULT_GLADIATOR_HEALTH_POINTS;
+            this.AbilityPoints = Consts.Gladiator.DEFAULT_GLADIATOR_ABILITY_POINTS;
+            this.HealthPoints = Consts.Gladiator.DEFAULT_GLADIATOR_HEALTH_POINTS;
             this.level = 1;
             this.IsAlive = true;
 
@@ -172,11 +170,13 @@ namespace Characters.MainChar
 
         public void Defend()
         {
+            Tools.ColorfulWriteLine($"{this.Name} is in defending pose, armor is increased by 1", ConsoleColor.Green);
             this.ChestArmor.ArmorPoints++;
         }
 
         public void Charge()
         {
+            Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 1", ConsoleColor.Green);
             this.AbilityPoints++;
         }
     }

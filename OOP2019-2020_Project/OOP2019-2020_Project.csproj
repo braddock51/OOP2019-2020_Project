@@ -74,6 +74,7 @@
     <Compile Include="Interfaces\IOpponentAttack.cs" />
     <Compile Include="Interfaces\IOpponentSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Consts.cs" />
     <Compile Include="Utilities\GladiatorInfo.cs" />
     <Compile Include="Utilities\Tools.cs" />
     <Compile Include="Weapons\Hammer.cs" />
