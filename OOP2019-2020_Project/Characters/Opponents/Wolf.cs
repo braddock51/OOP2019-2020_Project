@@ -27,9 +27,18 @@ namespace Characters.Opponents
 
             else
             {
+                Tools.ColorfulWriteLine(" _____ _                       _     \n" +
+                                        "/  ___| |                     | |    \n" +
+                                        "\\ `--.| | __ _  __ _  __ _ ___| |__  \n" +
+                                        " `--. \\ |/ _` |/ _` |/ _` / __| '_ \\ \n" +
+                                        "/\\__/ / | (_| | (_| | (_| \\__ \\ | | |\n" +
+                                        "\\____/|_|\\__,_|\\__,_|\\__,_|___/_| |_|\n" +
+                                        "\n\n\n\n", ConsoleColor.Red);
+                
                 Tools.ColorfulWriteLine("Wolf use ClawRage\n" +
-                "He jump to you with his sharp claws\n\n", ConsoleColor.DarkRed);
-                base.Damage += 2;
+                "Dealt you a terrible blow.\n" +
+                "\n\n", ConsoleColor.DarkRed);
+                base.Damage += 5;
                 base.AbilityPoints -= 5;
                 base.Attack(gladiator);
                 base.Damage = Consts.Wolf.DEFAULT_WOLF_DAMAGE;

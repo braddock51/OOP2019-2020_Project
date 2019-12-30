@@ -182,15 +182,14 @@ namespace OOP2019_2020_Project
                 Thread.Sleep(5000);
                 Console.Clear();
 
-                Tools.ColorfulWriteLine("                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
+                Tools.ColorfulWriteLine("\n\n                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
                                         "                                           █   █      █ █      █ █    █     █  ▄▀  ▀▄ \n" +
                                         "                                             █        █ █      █     █      █▄▄▄▄   \n" +
                                         "                                             █   ▄    █  ▀▄    ▄▀     █       █       \n" +
                                         "                                              ▀▄▀ ▀▄ ▄▀    ▀▀▀▀     ▄▀▄▄▄▄▄▄▀ █        \n" +
                                         "                                                    ▀               █        █         \n" +
-                                        "                                                                                     ", ConsoleColor.DarkGray);
-
-                Tools.ColorfulWriteLine("                            .d$$b      \n" +
+                                        "                                                                                     \n" +
+                                        "                            .d$$b      \n" +
                                         "                          .' TO$;\\     \n" +
                                         "                         /  : TP._;    \n" +
                                         "                        / _.;  :Tb|    \n" +
@@ -210,11 +209,9 @@ namespace OOP2019_2020_Project
                                         " `-.-'..--''   ' /         /  ;        \n" +
                                         ".-' ..--''        -'          :        \n" +
                                         "..--''--.-'         (\\      .-(\\       \n" +
-                                        "  ..--''              `-\\(\\/;`         \n" +
-                                        "    _.                      :          \n" +
-                                        "                            ;`-        \n" +
-                                        "                           :\\          \n" +
-                                        "                           ;           \n", ConsoleColor.Gray);
+                                        "  ..--''              `-\\(\\/;`         \n", ConsoleColor.DarkGray);
+                                      
+
 
                 Console.ReadKey();
                 Console.Clear();

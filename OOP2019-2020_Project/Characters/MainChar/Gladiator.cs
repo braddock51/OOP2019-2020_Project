@@ -1,4 +1,4 @@
-﻿
+﻿using Enums;
 using Armors;
 using Characters.Opponents;
 using Interfaces;
@@ -134,7 +134,26 @@ namespace Characters.MainChar
 
         public void Attack(Opponent enemy)
         {
-            if(this.AbilityPoints == 0)
+            if (this.ArmWeapon.KindOfWeapon == WeaponKind.Sword)
+            {
+                Tools.ColorfulWriteLine("                              .___.                             \n" +
+                                        "          /)               ,-^     ^-.                          \n" +
+                                        "         //               /           \\                         \n" +
+                                        ".-------| |--------------/  __     __  \\-------------------.__  \n" +
+                                        "|WMWMWMW| |>>>>>>>>>>>>> | />>\\   />>\\ |>>>>>>>>>>>>>>>>>>>>>>:>\n" +
+                                        "`-------| |--------------| \\__/   \\__/ |-------------------'^^  \n" +
+                                        "         \\\\               \\    /|\\    /                         \n" +
+                                        "          \\)               \\   \\_/   /                          \n" +
+                                        "                            |       |                           \n" +
+                                        "                            |+H+H+H+|                           \n" +
+                                        "                            \\       /                           \n" +
+                                        "                             ^-----^                            \n", ConsoleColor.White);
+            }
+
+
+
+
+            if (this.AbilityPoints == 0)
             {
                 Console.WriteLine("You are out of AP, need charge up");
                 this.Charge();
@@ -145,16 +164,22 @@ namespace Characters.MainChar
             {
                 int criticalRnd = rnd.Next(1, 21);
                 
+                
+                
                 if (criticalRnd >= 0 && criticalRnd <= this.ArmWeapon.Critical)
                 {
-                        enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 3;
+                        
+                        
+                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 3;
                         this.AbilityPoints--;
                         Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 3} to {enemy.ToString()}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
                             $"Your ability points decreased by 1\n\n" +
-                            $"Now you have {this.AbilityPoints} ability points", ConsoleColor.Green);
+                            $"Now you have {this.AbilityPoints} ability points" +
+                            $"\n\n\n\n" +
+                            $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
 
-                    Thread.Sleep(5000);
+                    Console.ReadKey();
                     Console.Clear();
 
 
@@ -167,9 +192,11 @@ namespace Characters.MainChar
                         Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
                             $"Your ability points decreased by 1\n\n" +
-                            $"Now you have {this.AbilityPoints} ability points\n\n", ConsoleColor.Green);
+                            $"Now you have {this.AbilityPoints} ability points\n\n" +
+                            $"\n\n\n\n" +
+                            $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
 
-                    Thread.Sleep(5000);
+                    Console.ReadKey();
                     Console.Clear();
 
                 }
@@ -195,19 +222,23 @@ namespace Characters.MainChar
 
         public void Defend()
         {
-            Tools.ColorfulWriteLine($"{this.Name} is in defending pose, armor is increased by 1", ConsoleColor.Green);
+            Tools.ColorfulWriteLine($"{this.Name} is in defending pose, armor is increased by 1" +
+                $"\n\n\n\n" +
+                $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
             this.ChestArmor.ArmorPoints++;
-            
-            Thread.Sleep(5000);
+
+            Console.ReadKey();
             Console.Clear();
         }
 
         public void Charge()
         {
-            Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 1", ConsoleColor.Green);
+            Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 1" +
+                $"\n\n\n\n" +
+                $"PRESS ANY KEY TO CONTINUE", ConsoleColor.Green);
             this.AbilityPoints++;
             
-            Thread.Sleep(5000);
+            
             Console.Clear();
         }
     }
