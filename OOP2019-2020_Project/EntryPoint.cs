@@ -152,7 +152,7 @@ namespace OOP2019_2020_Project
                     if(startSelect == "1")
                     {
                         GladiatorInfo.PrintFullInfo();
-                        Thread.Sleep(3000);
+                        Thread.Sleep(5000);
 
                         startSelect = null;
                         Console.Clear();
@@ -162,24 +162,24 @@ namespace OOP2019_2020_Project
                 }
 
 
-                Tools.ColorfulWriteLine("                               @@@  @@@  @@@ @@@@@@@@ @@@       @@@@@@@  @@@@@@  @@@@@@@@@@  @@@@@@@@\n" +
-                                        "                               @@!  @@!  @@! @@!      @@!      !@@      @@!  @@@ @@! @@! @@! @@!     \n" +
-                                        "                               @!!  !!@  @!@ @!!!:!   @!!      !@!      @!@  !@! @!! !!@ @!@ @!!!:!  \n" +
-                                        "                                !:  !!:  !!  !!:      !!:      :!!      !!:  !!! !!:     !!: !!:     \n" +
-                                        "                                 ::.:  :::   : :: ::: : ::.: :  :: :: :  : :. :   :      :   : :: :::\n\n\n\n", ConsoleColor.Red);
+                Tools.ColorfulWriteLine("                            @@@  @@@  @@@ @@@@@@@@ @@@       @@@@@@@  @@@@@@  @@@@@@@@@@  @@@@@@@@\n" +
+                                        "                            @@!  @@!  @@! @@!      @@!      !@@      @@!  @@@ @@! @@! @@! @@!     \n" +
+                                        "                            @!!  !!@  @!@ @!!!:!   @!!      !@!      @!@  !@! @!! !!@ @!@ @!!!:!  \n" +
+                                        "                             !:  !!:  !!  !!:      !!:      :!!      !!:  !!! !!:     !!: !!:     \n" +
+                                        "                              ::.:  :::   : :: ::: : ::.: :  :: :: :  : :. :   :      :   : :: :::\n\n\n\n", ConsoleColor.Red);
 
-                Tools.ColorfulWriteLine("                           , .  .   ,---. .  . ,--.    ,-.  ,-.  ,    ,     ,-.   ,-.  .  . ,--. .   , \n" +
-                                        "                           | |\\ |     |   |  | |      /    /   \\ |    |    /   \\ (   ` |  | |    |\\ /| \n" +
-                                        "                           | | \\|     |   |--| |-     |    |   | |    |    |   |  `-.  |  | |-   | V | \n" +
-                                        "                           | |  |     |   |  | |      \\    \\   / |    |    \\   / .   ) |  | |    |   | \n" +
-                                        "                           ' '  '     '   '  ' `--'    `-'  `-'  `--' `--'  `-'   `-'  `--` `--' '   ' \n\n\n\n", ConsoleColor.DarkYellow);
+                Tools.ColorfulWriteLine("                        , .  .   ,---. .  . ,--.    ,-.  ,-.  ,    ,     ,-.   ,-.  .  . ,--. .   , \n" +
+                                        "                        | |\\ |     |   |  | |      /    /   \\ |    |    /   \\ (   ` |  | |    |\\ /| \n" +
+                                        "                        | | \\|     |   |--| |-     |    |   | |    |    |   |  `-.  |  | |-   | V | \n" +
+                                        "                        | |  |     |   |  | |      \\    \\   / |    |    \\   / .   ) |  | |    |   | \n" +
+                                        "                        ' '  '     '   '  ' `--'    `-'  `-'  `--' `--'  `-'   `-'  `--` `--' '   ' \n\n\n\n", ConsoleColor.DarkYellow);
 
-                Tools.ColorfulWriteLine("                                                  PREPARE FOR THE BATTLE\n\n\n\n", ConsoleColor.Blue);
+                Tools.ColorfulWriteLine("                                               PREPARE FOR THE BATTLE\n\n\n\n", ConsoleColor.Blue);
 
-                Tools.ColorfulWriteLine("              _   _ ____ _  _ ____    ____ _ ____ ____ ___    ____ ___  ___  ____ _  _ ____ _  _ ___    _ ____    \n" +
-                                        "               \\_/  |  | |  | |__/    |___ | |__/ [__   |     |  | |__] |__] |  | |\\ | |___ |\\ |  |     | [__     \n" +
-                                        "                |   |__| |__| |  \\    |    | |  \\ ___]  |     |__| |    |    |__| | \\| |___ | \\|  |     | ___] ...\n", ConsoleColor.Cyan);
-                Thread.Sleep(3000);
+                Tools.ColorfulWriteLine("           _   _ ____ _  _ ____    ____ _ ____ ____ ___    ____ ___  ___  ____ _  _ ____ _  _ ___    _ ____    \n" +
+                                        "            \\_/  |  | |  | |__/    |___ | |__/ [__   |     |  | |__] |__] |  | |\\ | |___ |\\ |  |     | [__     \n" +
+                                        "             |   |__| |__| |  \\    |    | |  \\ ___]  |     |__| |    |    |__| | \\| |___ | \\|  |     | ___] ...\n", ConsoleColor.Cyan);
+                Thread.Sleep(5000);
                 Console.Clear();
 
                 Tools.ColorfulWriteLine("                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
@@ -225,15 +225,62 @@ namespace OOP2019_2020_Project
 
                 Wolf wolfie = new Wolf();
                 int roundCounter = 0;
+                string moveSelect = null;
                 while(glad.IsAlive && wolfie.IsAlive)
                 {
                     roundCounter++;
-
-                    Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
+                    
+                    while(moveSelect != "1" && moveSelect != "2" && moveSelect != "3")
+                    {
+                        Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
                                       $"Make your move:\n\n" +
-                                      $"1. ATTACK\n" +
-                                      $"2. DEFENCE\n" +
-                                      $"3. CHARGE\n");
+                                      $"1. Attack\n\n" +
+                                      $"2. Defend\n\n" +
+                                      $"3. Charge\n\n");
+                        moveSelect = Console.ReadLine();
+                    }
+                    Console.Clear();
+
+                    switch (moveSelect)
+                    {
+                        case "1":
+                            glad.Attack(wolfie);
+                            break;
+                        case "2":
+                            glad.Defend();
+                            break;
+                        case "3":
+                            glad.Charge();
+                            break;
+                    }
+
+                    Random rnd = new Random();
+                    int los = rnd.Next(0, 6);
+
+                    if(los > 2)
+                    {
+                        wolfie.Skill(glad);
+                    }
+                    
+                    else if(wolfie.AbilityPoints < 3)
+                    {
+                        wolfie.Charge();
+                    }
+
+                    else if(wolfie.HealthPoints < 5 && los > 2)
+                    {
+                        wolfie.Defend();
+                    }
+
+                    else
+                    {
+                        wolfie.Attack(glad);
+                    }
+
+
+                    moveSelect = null;
+
+
 
 
 

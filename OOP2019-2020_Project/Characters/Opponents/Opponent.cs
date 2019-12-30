@@ -3,6 +3,7 @@
 using Characters.MainChar;
 using Interfaces;
 using System;
+using System.Threading;
 using Utilities;
 
 namespace Characters.Opponents
@@ -37,10 +38,14 @@ namespace Characters.Opponents
             }
             set
             {
-                if (value < 0 || value > 100)
-                    throw new ArgumentOutOfRangeException(string.Empty, "Health points can't be lower then 0 or higher then 100");
-                else
+                if (value >= 0 && value <= 100)
+                {
                     this.healthPoints = value;
+                }
+                else
+                {
+                    //throw new ArgumentOutOfRangeException(string.Empty, "Inappropriate value, the value should be >= 0 and <= 100.");
+                }
             }
         }
         public int Damage 
@@ -61,10 +66,8 @@ namespace Characters.Opponents
             {
                 return this.isAlive;
             }
-            private set
+            set
             {
-                if (this.HealthPoints == 0)
-                    this.isAlive = false;
                 this.isAlive = value;
             }
         }
@@ -85,33 +88,60 @@ namespace Characters.Opponents
 
         public void Attack(Gladiator gladiator)
         {
-            int los = rnd.Next(1, 21);
+            int los = rnd.Next(1, 16);
+            Console.WriteLine(los);
 
-            if (gladiator.ChestArmor.Dodge <= los)
-                Tools.ColorfulWriteLine($"{gladiator.Name} dodge wolf attack.\n\n", ConsoleColor.Green);
+            if (this.AbilityPoints <= 0)
+            {
+                
+                this.Charge();
+
+            }
 
             else
             {
-                gladiator.HealthPoints = gladiator.HealthPoints + gladiator.ChestArmor.ArmorPoints - this.Damage;
-                this.AbilityPoints--;
-                Tools.ColorfulWriteLine($"{this.ToString()} hit {gladiator.Name} for {this.Damage}\n\n" +
-                    $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
-                    $"{this.ToString()} ability points decreased by 1\n\n" +
-                    $"{this.ToString()} abilitiy points is equal to {this.AbilityPoints}\n\n", ConsoleColor.Red);
+                if (los <= gladiator.ChestArmor.Dodge)
+                {
+                    Tools.ColorfulWriteLine($"{gladiator.Name} dodge wolf attack.\n\n", ConsoleColor.Green);
 
+                    Thread.Sleep(5000);
+                    Console.Clear();
+                }
+
+                else
+                {
+                    gladiator.HealthPoints = gladiator.HealthPoints + gladiator.ChestArmor.ArmorPoints - this.Damage;
+                    this.AbilityPoints--;
+                    Tools.ColorfulWriteLine($"{this.ToString()} hit {gladiator.Name} for {this.Damage}\n\n" +
+                        $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
+                        $"{this.ToString()} ability points decreased by 1\n\n" +
+                        $"{this.ToString()} abilitiy points is equal to {this.AbilityPoints}\n\n", ConsoleColor.Red);
+
+                    Thread.Sleep(5000);
+                    Console.Clear();
+
+                }
             }
+
+            
         }
 
         public void Defend()
         {
             Tools.ColorfulWriteLine($"{this.ToString()} is in defending pose, his health is increased by 1\n\n", ConsoleColor.Red);
             this.HealthPoints++;
+
+            Thread.Sleep(5000);
+            Console.Clear();
         }
 
         public void Charge()
         {
             Tools.ColorfulWriteLine($"{this.ToString()} is walked away a bit to charge up, his ability points is increased by 1\n\n", ConsoleColor.Red);
             this.AbilityPoints++;
+
+            Thread.Sleep(5000);
+            Console.Clear();
         }
     }
 }

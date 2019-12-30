@@ -5,6 +5,7 @@ using Interfaces;
 using System;
 using Weapons;
 using Utilities;
+using System.Threading;
 
 namespace Characters.MainChar
 {
@@ -108,10 +109,8 @@ namespace Characters.MainChar
             {
                 return this.isAlive;
             }
-            set
+            private set
             {
-                if (this.HealthPoints == 0)
-                    this.isAlive = false;
                 this.isAlive = value;
             }
         }
@@ -135,49 +134,81 @@ namespace Characters.MainChar
 
         public void Attack(Opponent enemy)
         {
-            int criticalRnd = rnd.Next(1, 21);
-            Tools.ColorfulWriteLine($"{criticalRnd} LOS", ConsoleColor.Blue);
-
-            for (int i = 0; i <= this.ArmWeapon.Critical; i++)
+            if(this.AbilityPoints == 0)
             {
-                if(criticalRnd >= 0 && criticalRnd <= this.ArmWeapon.Critical)
-                {
-                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 2;
-                    this.AbilityPoints--;
-                    Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 2} to {enemy.ToString()}\n\n" +
-                        $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
-                        $"Your ability points decreased by 1\n\n" +
-                        $"Now you have {this.AbilityPoints} ability points", ConsoleColor.Green);
-                    break;
-                    
-                    
-                }
-                else
-                {
-                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage;
-                    this.AbilityPoints--;
-                    Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
-                        $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
-                        $"Your ability points decreased by 1\n\n" +
-                        $"Now you have {this.AbilityPoints} ability points\n\n", ConsoleColor.Green);
-                    break;
-                }
+                Console.WriteLine("You are out of AP, need charge up");
+                this.Charge();
+
             }
+            
+            else
+            {
+                int criticalRnd = rnd.Next(1, 21);
+                
+                if (criticalRnd >= 0 && criticalRnd <= this.ArmWeapon.Critical)
+                {
+                        enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 3;
+                        this.AbilityPoints--;
+                        Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 3} to {enemy.ToString()}\n\n" +
+                            $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
+                            $"Your ability points decreased by 1\n\n" +
+                            $"Now you have {this.AbilityPoints} ability points", ConsoleColor.Green);
+
+                    Thread.Sleep(5000);
+                    Console.Clear();
+
+
+                }
+
+                else
+                    {
+                        enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage;
+                        this.AbilityPoints--;
+                        Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
+                            $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
+                            $"Your ability points decreased by 1\n\n" +
+                            $"Now you have {this.AbilityPoints} ability points\n\n", ConsoleColor.Green);
+
+                    Thread.Sleep(5000);
+                    Console.Clear();
+
+                }
+                
+                
+                if(enemy.HealthPoints < 1)
+                {
+                    Tools.ColorfulWriteLine($"You kill the wolf.\n" +
+                        $"{this.Name} is victourius !!!", ConsoleColor.DarkGreen);
+
+                    enemy.IsAlive = false;
+                }
+
+            }
+                    
+        }
+                
+
+            
             
             
            
-        }
 
         public void Defend()
         {
             Tools.ColorfulWriteLine($"{this.Name} is in defending pose, armor is increased by 1", ConsoleColor.Green);
             this.ChestArmor.ArmorPoints++;
+            
+            Thread.Sleep(5000);
+            Console.Clear();
         }
 
         public void Charge()
         {
             Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 1", ConsoleColor.Green);
             this.AbilityPoints++;
+            
+            Thread.Sleep(5000);
+            Console.Clear();
         }
     }
 }
