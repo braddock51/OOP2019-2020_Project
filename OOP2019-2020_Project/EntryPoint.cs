@@ -4,6 +4,7 @@
 using Armors;
 using Characters.MainChar;
 using Characters.Opponents;
+using Interfaces;
 using System;
 using System.Threading;
 using Utilities;
@@ -15,7 +16,7 @@ namespace OOP2019_2020_Project
     {
         static void Main()
         {
-
+            
          
             bool gameOver = false;
 
@@ -152,7 +153,12 @@ namespace OOP2019_2020_Project
                     if(startSelect == "1")
                     {
                         GladiatorInfo.PrintFullInfo();
-                        Thread.Sleep(5000);
+                        Console.WriteLine("\n\n" +
+                                          "Weapon info:\n");
+                        glad.ArmWeapon.GetWeaponInfo();
+                        Console.WriteLine("\n\n\n\n" +
+                                          "PRESS ANY KEY TO CONTINUE");
+                        Console.ReadKey();
 
                         startSelect = null;
                         Console.Clear();
@@ -179,7 +185,7 @@ namespace OOP2019_2020_Project
                 Tools.ColorfulWriteLine("           _   _ ____ _  _ ____    ____ _ ____ ____ ___    ____ ___  ___  ____ _  _ ____ _  _ ___    _ ____    \n" +
                                         "            \\_/  |  | |  | |__/    |___ | |__/ [__   |     |  | |__] |__] |  | |\\ | |___ |\\ |  |     | [__     \n" +
                                         "             |   |__| |__| |  \\    |    | |  \\ ___]  |     |__| |    |    |__| | \\| |___ | \\|  |     | ___] ...\n", ConsoleColor.Cyan);
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
                 Console.Clear();
 
                 Tools.ColorfulWriteLine("\n\n                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
@@ -227,13 +233,14 @@ namespace OOP2019_2020_Project
                 {
                     roundCounter++;
                     
-                    while(moveSelect != "1" && moveSelect != "2" && moveSelect != "3")
+                    while(moveSelect != "1" && moveSelect != "2" && moveSelect != "3" && moveSelect != "4")
                     {
                         Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
                                       $"Make your move:\n\n" +
                                       $"1. Attack\n\n" +
                                       $"2. Defend\n\n" +
-                                      $"3. Charge\n\n");
+                                      $"3. Charge\n\n" +
+                                      $"4. Weapon skill\n\n");
                         moveSelect = Console.ReadLine();
                     }
                     Console.Clear();
@@ -249,14 +256,58 @@ namespace OOP2019_2020_Project
                         case "3":
                             glad.Charge();
                             break;
+                        case "4":
+                            glad.ArmWeapon.Skill(wolfie);
+                            break;
                     }
 
                     Random rnd = new Random();
                     int los = rnd.Next(0, 6);
 
-                    if(los > 2)
+
+
+                    if (glad.ArmWeapon.stunChance && moveSelect == "4")
+                    {
+                        if(glad.AbilityPoints < 4)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You are out of ability points, can't use skill, charge up first");
+                            moveSelect = null;
+                            Thread.Sleep(1500);
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            glad.AbilityPoints -= 4;
+                            glad.Attack(wolfie);
+                        }
+                        
+                    }
+                    
+                    else if(!glad.ArmWeapon.stunChance && moveSelect == "4")
+                    {
+
+                        if (glad.AbilityPoints < 4)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You are out of ability points, can't use skill, charge up first");
+                            moveSelect = null;
+                            Thread.Sleep(1500);
+                            Console.Clear();
+                            wolfie.Attack(glad);
+                        }
+                        else
+                        {
+                            glad.AbilityPoints -= 4;
+                            wolfie.Attack(glad);
+                        }
+                            
+                    }
+                    
+                    else if(los > 2)
                     {
                         wolfie.Skill(glad);
+                        
                     }
                     
                     else if(wolfie.AbilityPoints < 3)

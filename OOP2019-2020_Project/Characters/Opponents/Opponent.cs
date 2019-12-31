@@ -89,7 +89,7 @@ namespace Characters.Opponents
         public void Attack(Gladiator gladiator)
         {
             int los = rnd.Next(1, 16);
-            Console.WriteLine(los);
+            
 
             if (this.AbilityPoints <= 0)
             {
@@ -105,16 +105,16 @@ namespace Characters.Opponents
                     Tools.ColorfulWriteLine("______          _            \n" +
                                             "|  _  \\        | |           \n" +
                                             "| | | |___   __| | __ _  ___ \n" +
-                                            "| | | / _ \\ / _` |/ _` |/ _ \\n" +
+                                            "| | | / _ \\ / _` |/ _` |/ _ \\ \n" +
                                             "| |/ / (_) | (_| | (_| |  __/\n" +
                                             "|___/ \\___/ \\__,_|\\__, |\\___|\n" +
                                             "                   __/ |     \n" +
-                                            "                  |___/      \n", ConsoleColor.DarkGreen);
+                                            "                  |___/      \n\n\n\n", ConsoleColor.DarkGreen);
 
 
                     Tools.ColorfulWriteLine($"{gladiator.Name} dodge wolf attack.\n\n", ConsoleColor.Green);
 
-                    Thread.Sleep(3000);
+                    Thread.Sleep(4000);
                     Console.Clear();
                 }
 
@@ -135,7 +135,27 @@ namespace Characters.Opponents
                 }
             }
 
-            
+            if (gladiator.HealthPoints < 1)
+            {
+                Tools.ColorfulWriteLine("__   __                                                          _     _    _ _ _                     \n" +
+                                        "\\ \\ / /                                                         | |   | |  (_) | |                    \n" +
+                                        " \\ V /___  _   _ _ __    ___  _ __  _ __   ___  _ __   ___ _ __ | |_  | | ___| | |  _   _  ___  _   _ \n" +
+                                        "  \\ // _ \\| | | | '__|  / _ \\| '_ \\| '_ \\ / _ \\| '_ \\ / _ \\ '_ \\| __| | |/ / | | | | | | |/ _ \\| | | |\n" +
+                                        "  | | (_) | |_| | |    | (_) | |_) | |_) | (_) | | | |  __/ | | | |_  |   <| | | | | |_| | (_) | |_| |\n" +
+                                        "  \\_/\\___/ \\__,_|_|     \\___/| .__/| .__/ \\___/|_| |_|\\___|_| |_|\\__| |_|\\_\\_|_|_|  \\__, |\\___/ \\__,_|\n" +
+                                        "                             | |   | |                                               __/ |            \n" +
+                                        "                             |_|   |_|                                              |___/             \n" +
+                                        "__   _______ _   _   _     _____  _____ _____ _____                                                   \n" +
+                                        "\\ \\ / /  _  | | | | | |   |  _  ||  _  /  ___|  ___|                                                  \n" +
+                                        " \\ V /| | | | | | | | |   | | | || | | \\ `--.| |__                                                    \n" +
+                                        "  \\ / | | | | | | | | |   | | | || | | |`--. \\  __|                                                   \n" +
+                                        "  | | \\ \\_/ / |_| | | |___\\ \\_/ /\\ \\_/ /\\__/ / |___                                                   \n" +
+                                        "  \\_/  \\___/ \\___/  \\_____/\\___/  \\___/\\____/\\____/                                                   \n", ConsoleColor.Red);
+
+                gladiator.IsAlive = false;
+            }
+
+
         }
 
         public void Defend()

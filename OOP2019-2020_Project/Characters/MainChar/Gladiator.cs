@@ -57,10 +57,7 @@ namespace Characters.MainChar
             }
             set
             {
-                if (value < 0 || value > 100)
-                    throw new ArgumentOutOfRangeException(string.Empty, "Health points can't be lower then 0 or higher then 100");
-                else
-                    this.healthPoints = value;
+                this.healthPoints = value;
             }
         }
         public int Level
@@ -109,7 +106,7 @@ namespace Characters.MainChar
             {
                 return this.isAlive;
             }
-            private set
+            set
             {
                 this.isAlive = value;
             }
@@ -153,7 +150,7 @@ namespace Characters.MainChar
 
 
 
-            if (this.AbilityPoints == 0)
+            if (this.AbilityPoints < 0)
             {
                 Console.WriteLine("You are out of AP, need charge up");
                 this.Charge();

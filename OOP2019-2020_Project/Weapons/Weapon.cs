@@ -1,11 +1,15 @@
 ﻿
 
+using Characters.Opponents;
 using Enums;
 
 namespace Weapons
 {
     public abstract class Weapon
     {
+        public bool stunChance;
+
+
         private WeaponKind weaponKind;
         
         private int damage;
@@ -57,5 +61,9 @@ namespace Weapons
             this.Damage = damage;
             this.Critical = critical;
         }
+
+        public abstract void GetWeaponInfo();
+
+        public abstract void Skill(Opponent enemy);
     }
 }
