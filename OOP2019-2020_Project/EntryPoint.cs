@@ -185,7 +185,7 @@ namespace OOP2019_2020_Project
                 Tools.ColorfulWriteLine("           _   _ ____ _  _ ____    ____ _ ____ ____ ___    ____ ___  ___  ____ _  _ ____ _  _ ___    _ ____    \n" +
                                         "            \\_/  |  | |  | |__/    |___ | |__/ [__   |     |  | |__] |__] |  | |\\ | |___ |\\ |  |     | [__     \n" +
                                         "             |   |__| |__| |  \\    |    | |  \\ ___]  |     |__| |    |    |__| | \\| |___ | \\|  |     | ___] ...\n", ConsoleColor.Cyan);
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
                 Console.Clear();
 
                 Tools.ColorfulWriteLine("\n\n                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
@@ -257,51 +257,41 @@ namespace OOP2019_2020_Project
                             glad.Charge();
                             break;
                         case "4":
-                            glad.ArmWeapon.Skill(wolfie);
+                            if(glad.AbilityPoints >= 4)
+                                glad.ArmWeapon.Skill(wolfie);
+                            else
+                            {
+                                Tools.ColorfulWriteLine("You are out of AP, need to charge up to use ur skill\n\n\n\n" +
+                                                        "PRESS ANY KEY TO CONTINUE", ConsoleColor.Cyan);
+                                Console.ReadKey();
+                                Console.Clear();
+
+                                roundCounter--;
+                                goto Found;
+
+                            }
+
                             break;
                     }
 
                     Random rnd = new Random();
                     int los = rnd.Next(0, 6);
 
-
+                    
 
                     if (glad.ArmWeapon.stunChance && moveSelect == "4")
                     {
-                        if(glad.AbilityPoints < 4)
-                        {
-                            Console.Clear();
-                            Console.WriteLine("You are out of ability points, can't use skill, charge up first");
-                            moveSelect = null;
-                            Thread.Sleep(1500);
-                            Console.Clear();
-                        }
-                        else
-                        {
-                            glad.AbilityPoints -= 4;
-                            glad.Attack(wolfie);
-                        }
-                        
+                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                        glad.Attack(wolfie);
+
                     }
                     
                     else if(!glad.ArmWeapon.stunChance && moveSelect == "4")
                     {
 
-                        if (glad.AbilityPoints < 4)
-                        {
-                            Console.Clear();
-                            Console.WriteLine("You are out of ability points, can't use skill, charge up first");
-                            moveSelect = null;
-                            Thread.Sleep(1500);
-                            Console.Clear();
-                            wolfie.Attack(glad);
-                        }
-                        else
-                        {
-                            glad.AbilityPoints -= 4;
-                            wolfie.Attack(glad);
-                        }
-                            
+                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                        wolfie.Attack(glad);
+
                     }
                     
                     else if(los > 2)
@@ -325,7 +315,7 @@ namespace OOP2019_2020_Project
                         wolfie.Attack(glad);
                     }
 
-
+                    Found:
                     moveSelect = null;
 
 

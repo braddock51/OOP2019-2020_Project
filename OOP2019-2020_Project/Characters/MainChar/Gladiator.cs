@@ -131,6 +131,8 @@ namespace Characters.MainChar
 
         public void Attack(Opponent enemy)
         {
+            int attackCost = 1;
+            
             if (this.ArmWeapon.KindOfWeapon == WeaponKind.Sword)
             {
                 Tools.ColorfulWriteLine("                              .___.                             \n" +
@@ -150,9 +152,9 @@ namespace Characters.MainChar
 
 
 
-            if (this.AbilityPoints < 0)
+            if (this.AbilityPoints <= 0)
             {
-                Console.WriteLine("You are out of AP, need charge up");
+                Console.WriteLine("You are out of AP");
                 this.Charge();
 
             }
@@ -171,7 +173,7 @@ namespace Characters.MainChar
                         this.AbilityPoints--;
                         Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 3} to {enemy.ToString()}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
-                            $"Your ability points decreased by 1\n\n" +
+                            $"Your ability points decreased by {attackCost + this.ArmWeapon.SkillCost}\n\n" +
                             $"Now you have {this.AbilityPoints} ability points" +
                             $"\n\n\n\n" +
                             $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
@@ -188,7 +190,7 @@ namespace Characters.MainChar
                         this.AbilityPoints--;
                         Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
-                            $"Your ability points decreased by 1\n\n" +
+                            $"Your ability points decreased by {attackCost + this.ArmWeapon.SkillCost}\n\n" +
                             $"Now you have {this.AbilityPoints} ability points\n\n" +
                             $"\n\n\n\n" +
                             $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
@@ -199,7 +201,7 @@ namespace Characters.MainChar
                 }
                 
                 
-                if(enemy.HealthPoints < 1)
+                if(enemy.HealthPoints <= 0)
                 {
                     Tools.ColorfulWriteLine($"You kill the wolf.\n" +
                         $"{this.Name} is victourius !!!", ConsoleColor.DarkGreen);
@@ -212,13 +214,29 @@ namespace Characters.MainChar
         }
                 
 
-            
-            
-            
-           
-
         public void Defend()
         {
+            Tools.ColorfulWriteLine("                .--..--..--..--.   \n" +
+                                    "                / .. \\.. \\.. \\.. \\\n" +
+                                    "                \\ \\/\\ \\/\\ \\/\\ \\/ / \n" +
+                                    "                 \\/ /\\/ /\\/ /\\/ /  \n" +
+                                    "                 / /\\/ /\\/ /\\/ /\\  \n" +
+                                    "                / /\\ \\/\\ \\/\\ \\/\\ \\ \n" +
+                                    "                \\ \\/\\ \\/\\ \\/\\ \\/ / \n" +
+                                    "                 \\/ /\\/ /\\/ /\\/ /  \n" +
+                                    "                 / /\\/ /\\/ /\\/ /\\  \n" +
+                                    "                / /\\ \\/\\ \\/\\ \\/\\ \\ \n" +
+                                    "                \\ \\/\\ \\/\\ \\/\\ \\/ / \n" +
+                                    "                 \\/ /\\/ /\\/ /\\/ /  \n" +
+                                    "                 / /\\/ /\\/ /\\/ /\\  \n" +
+                                    "                / /\\ \\/\\ \\/\\ \\/\\ \\ \n" +
+                                    "                \\ `'\\ `'\\ `'\\ `' / \n" +
+                                    "                 `--'`--'`--'`--'  \n" +
+                                    "\n\n\n", ConsoleColor.DarkMagenta);
+
+
+
+
             Tools.ColorfulWriteLine($"{this.Name} is in defending pose, armor is increased by 1" +
                 $"\n\n\n\n" +
                 $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
@@ -227,16 +245,42 @@ namespace Characters.MainChar
             Console.ReadKey();
             Console.Clear();
         }
-
+            
+            
         public void Charge()
         {
+            Tools.ColorfulWriteLine("                                        _\n" +
+                                    "                                     _ooOoo_\n" +
+                                    "                                    o8888888o\n" +
+                                    "                                    88'. '88\n" +
+                                    "                                    (| -_- |)\n" +
+                                    "                                    O\\  =  /O\n" +
+                                    "                                 ____/`---'\\____\n" +
+                                    "                               .'  \\\\|     |//  `.\n" +
+                                    "                              /  \\\\|||  :  |||//  \\\n" +
+                                    "                             /  _||||| -:- |||||_  \\\n" +
+                                    "                             |   | \\\\\\  -  /'| |   |\n" +
+                                    "                             | \\_|  `\\`---'//  |_/ |\n" +
+                                    "                             \\  .-\\__ `-. -'__/-.  /\n" +
+                                    "                           ___`. .'  /--.--\\  `. .'___\n" +
+                                    "                        .'' '<  `.___\\_<|>_/___.' _> \''.\n" +
+                                    "                       | | :  `- \\`. ;`. _/; .'/ /  .' ; |\n" +
+                                    "                       \\  \\ `-.   \\_\\_`. _.'_/_/  -' _.' /\n" +
+                                    "             ===========`-.`___`-.__\\ \\___  /__.-'_.'_.-'================\n" +
+                                    "                           `=--=-'                   \n\n\n", ConsoleColor.Magenta);
+
+
             Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 1" +
                 $"\n\n\n\n" +
                 $"PRESS ANY KEY TO CONTINUE", ConsoleColor.Green);
             this.AbilityPoints++;
-            
-            
+
+            Console.ReadKey();
             Console.Clear();
         }
+            
+           
+
+
     }
 }

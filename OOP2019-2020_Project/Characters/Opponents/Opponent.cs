@@ -114,7 +114,7 @@ namespace Characters.Opponents
 
                     Tools.ColorfulWriteLine($"{gladiator.Name} dodge wolf attack.\n\n", ConsoleColor.Green);
 
-                    Thread.Sleep(4000);
+                    Thread.Sleep(3000);
                     Console.Clear();
                 }
 
@@ -150,7 +150,7 @@ namespace Characters.Opponents
                                         " \\ V /| | | | | | | | |   | | | || | | \\ `--.| |__                                                    \n" +
                                         "  \\ / | | | | | | | | |   | | | || | | |`--. \\  __|                                                   \n" +
                                         "  | | \\ \\_/ / |_| | | |___\\ \\_/ /\\ \\_/ /\\__/ / |___                                                   \n" +
-                                        "  \\_/  \\___/ \\___/  \\_____/\\___/  \\___/\\____/\\____/                                                   \n", ConsoleColor.Red);
+                                        "  \\_/  \\___/ \\___/  \\_____/\\___/  \\___/\\____/\\____/                                                   \n", ConsoleColor.DarkBlue);
 
                 gladiator.IsAlive = false;
             }
@@ -160,6 +160,7 @@ namespace Characters.Opponents
 
         public void Defend()
         {
+            
             
             
             Tools.ColorfulWriteLine($"{this.ToString()} is in defending pose, his health is increased by 1\n\n" +

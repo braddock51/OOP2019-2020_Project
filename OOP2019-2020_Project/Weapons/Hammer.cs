@@ -13,9 +13,10 @@ namespace Weapons
     {
         public const int DEFAULT_HAMMER_DAMAGE = 10;
         public const int DEFAULT_HAMMER_CRITICAL = 0;
+        public const int DEFAULT_STUN_COST = 4;
 
         public Hammer()
-            : base(WeaponKind.Blunt, DEFAULT_HAMMER_DAMAGE, DEFAULT_HAMMER_CRITICAL)
+            : base(WeaponKind.Blunt, DEFAULT_HAMMER_DAMAGE, DEFAULT_HAMMER_CRITICAL, DEFAULT_STUN_COST)
         {
 
         }
@@ -25,7 +26,8 @@ namespace Weapons
         {
             Random rnd = new Random();
             int los = rnd.Next(1, 11);
-            Console.WriteLine(los);
+            
+            
 
             if(los <= 4)
             {

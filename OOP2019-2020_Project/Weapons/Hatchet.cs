@@ -11,7 +11,7 @@ namespace Weapons
         public const int DEFAULT_HATCHET_CRITICAL = 3;
 
         public Hatchet()
-            : base(WeaponKind.Axe, DEFAULT_HATCHET_DAMAGE, DEFAULT_HATCHET_CRITICAL)
+            : base(WeaponKind.Axe, DEFAULT_HATCHET_DAMAGE, DEFAULT_HATCHET_CRITICAL, 0)
         {
 
         }

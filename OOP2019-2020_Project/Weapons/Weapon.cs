@@ -14,6 +14,7 @@ namespace Weapons
         
         private int damage;
         private int critical;
+        private int skillCost;
 
         public WeaponKind KindOfWeapon 
         { 
@@ -49,17 +50,29 @@ namespace Weapons
                 this.critical = value;
             }
         }
+        public int SkillCost 
+        { 
+            get
+            {
+                return this.skillCost;
+            }
+            protected set
+            {
+                this.skillCost = value;
+            }
+        }
 
         public Weapon()
         {
 
         }
 
-        protected Weapon(WeaponKind kindOfWeapon, int damage, int critical)
+        protected Weapon(WeaponKind kindOfWeapon, int damage, int critical, int skillCost)
         {
             this.KindOfWeapon = kindOfWeapon;
             this.Damage = damage;
             this.Critical = critical;
+            this.SkillCost = skillCost;
         }
 
         public abstract void GetWeaponInfo();

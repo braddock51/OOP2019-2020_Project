@@ -11,7 +11,7 @@ namespace Weapons
         public const int DEFAULT_LONG_SWORD_CRITICAL = 5;
 
         public LongSword()
-            : base(WeaponKind.Sword, DEFAULT_LONG_SWORD_DAMAGE, DEFAULT_LONG_SWORD_CRITICAL)
+            : base(WeaponKind.Sword, DEFAULT_LONG_SWORD_DAMAGE, DEFAULT_LONG_SWORD_CRITICAL, 0)
         {
 
         }
