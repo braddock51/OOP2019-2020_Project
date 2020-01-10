@@ -8,6 +8,9 @@ namespace Weapons
     public abstract class Weapon
     {
         public bool stunChance;
+        
+        public bool bleedChance;
+        public int bleedCounter = 0;
 
 
         private WeaponKind weaponKind;

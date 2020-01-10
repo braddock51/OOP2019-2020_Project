@@ -4,6 +4,7 @@
 using Armors;
 using Characters.MainChar;
 using Characters.Opponents;
+using Enums;
 using Interfaces;
 using System;
 using System.Threading;
@@ -229,11 +230,11 @@ namespace OOP2019_2020_Project
                 Wolf wolfie = new Wolf();
                 int roundCounter = 0;
                 string moveSelect = null;
-                while(glad.IsAlive && wolfie.IsAlive)
+                while (glad.IsAlive && wolfie.IsAlive) //napraw to gdy wolf zginie aby nie wykonywal akcji
                 {
                     roundCounter++;
-                    
-                    while(moveSelect != "1" && moveSelect != "2" && moveSelect != "3" && moveSelect != "4")
+
+                    while (moveSelect != "1" && moveSelect != "2" && moveSelect != "3" && moveSelect != "4")
                     {
                         Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
                                       $"Make your move:\n\n" +
@@ -257,7 +258,7 @@ namespace OOP2019_2020_Project
                             glad.Charge();
                             break;
                         case "4":
-                            if(glad.AbilityPoints >= 4)
+                            if (glad.AbilityPoints >= 4)
                                 glad.ArmWeapon.Skill(wolfie);
                             else
                             {
@@ -277,35 +278,62 @@ namespace OOP2019_2020_Project
                     Random rnd = new Random();
                     int los = rnd.Next(0, 6);
 
-                    
 
-                    if (glad.ArmWeapon.stunChance && moveSelect == "4")
+                    if (glad.ArmWeapon.bleedCounter > 0)
+                    {
+                        Tools.ColorfulWriteLine("Wolf bleed for 5 hp\n\n\n", ConsoleColor.DarkMagenta);
+                        wolfie.HealthPoints -= 5;
+                        glad.ArmWeapon.bleedCounter--;
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                    }
+
+                    if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && glad.ArmWeapon.bleedChance && moveSelect == "4")
+                    {
+                        glad.ArmWeapon.bleedCounter = 3;
+                        Tools.ColorfulWriteLine("\n\n\n\n\n" +
+                                                "Your AP decrease by 5\n\n\n\n\n", ConsoleColor.Green);
+
+                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                        wolfie.Attack(glad);
+                    }
+                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && !glad.ArmWeapon.bleedChance && moveSelect == "4")
+                    {
+                        Tools.ColorfulWriteLine("\n\n\n\n\n" +
+                                                "Your AP decrease by 5\n\n\n\n\n", ConsoleColor.Green);
+
+                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                        wolfie.Attack(glad);
+                    }
+
+
+                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Blunt && glad.ArmWeapon.stunChance && moveSelect == "4")
                     {
                         glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
                         glad.Attack(wolfie);
 
                     }
-                    
-                    else if(!glad.ArmWeapon.stunChance && moveSelect == "4")
+
+                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Blunt && !glad.ArmWeapon.stunChance && moveSelect == "4")
                     {
 
                         glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
                         wolfie.Attack(glad);
 
                     }
-                    
-                    else if(los > 2)
+
+                    else if (los > 2)
                     {
                         wolfie.Skill(glad);
-                        
+
                     }
-                    
-                    else if(wolfie.AbilityPoints < 3)
+
+                    else if (wolfie.AbilityPoints < 3)
                     {
                         wolfie.Charge();
                     }
 
-                    else if(wolfie.HealthPoints < 5 && los > 2)
+                    else if (wolfie.HealthPoints < 5 && los > 2)
                     {
                         wolfie.Defend();
                     }
@@ -315,7 +343,7 @@ namespace OOP2019_2020_Project
                         wolfie.Attack(glad);
                     }
 
-                    Found:
+                Found:
                     moveSelect = null;
 
 
@@ -325,10 +353,11 @@ namespace OOP2019_2020_Project
 
                 }
 
-                
 
-                
-                 
+
+
+
+
 
 
 

@@ -112,7 +112,7 @@ namespace Characters.Opponents
                                             "                  |___/      \n\n\n\n", ConsoleColor.DarkGreen);
 
 
-                    Tools.ColorfulWriteLine($"{gladiator.Name} dodge wolf attack.\n\n", ConsoleColor.Green);
+                    Tools.ColorfulWriteLine($"{gladiator.Name} dodge {this.ToString()} attack.\n\n", ConsoleColor.Green);
 
                     Thread.Sleep(3000);
                     Console.Clear();

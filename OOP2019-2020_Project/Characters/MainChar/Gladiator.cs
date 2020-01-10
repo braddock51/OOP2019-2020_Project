@@ -270,10 +270,10 @@ namespace Characters.MainChar
                                     "                           `=--=-'                   \n\n\n", ConsoleColor.Magenta);
 
 
-            Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 1" +
+            Tools.ColorfulWriteLine($"{this.Name} is walked away a bit to use some meditation, ability points increased by 5" +
                 $"\n\n\n\n" +
                 $"PRESS ANY KEY TO CONTINUE", ConsoleColor.Green);
-            this.AbilityPoints++;
+            this.AbilityPoints += 5;
 
             Console.ReadKey();
             Console.Clear();
