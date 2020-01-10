@@ -125,7 +125,10 @@ namespace Characters.MainChar
             this.level = 1;
             this.IsAlive = true;
 
-
+            if (this.HealthPoints <= 0)
+            {
+                this.IsAlive = false;
+            }
 
         }
 
@@ -174,7 +177,7 @@ namespace Characters.MainChar
                         Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 3} to {enemy.ToString()}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
                             $"Your ability points decreased by {attackCost + this.ArmWeapon.SkillCost}\n\n" +
-                            $"Now you have {this.AbilityPoints} ability points" +
+                            $"Now you have {this.AbilityPoints - (attackCost + this.ArmWeapon.SkillCost)} ability points" +
                             $"\n\n\n\n" +
                             $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
 
@@ -190,7 +193,7 @@ namespace Characters.MainChar
                         this.AbilityPoints--;
                         Tools.ColorfulWriteLine($"{this.Name} hit {enemy.ToString()} for {this.ArmWeapon.Damage}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
-                            $"Your ability points decreased by {attackCost + this.ArmWeapon.SkillCost}\n\n" +
+                            $"Your ability points decreased by {attackCost}\n\n" +
                             $"Now you have {this.AbilityPoints} ability points\n\n" +
                             $"\n\n\n\n" +
                             $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
@@ -203,10 +206,14 @@ namespace Characters.MainChar
                 
                 if(enemy.HealthPoints <= 0)
                 {
-                    Tools.ColorfulWriteLine($"You kill the wolf.\n" +
-                        $"{this.Name} is victourius !!!", ConsoleColor.DarkGreen);
+                    Tools.ColorfulWriteLine($"\n\n\n\n\n                          You kill the wolf.\n" +
+                                            $"                          {this.Name} is victourius !!!", ConsoleColor.DarkGreen);
 
-                    enemy.IsAlive = false;
+                    Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
+                                        "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
+
+                    Console.ReadKey();
+                    Console.Clear();
                 }
 
             }

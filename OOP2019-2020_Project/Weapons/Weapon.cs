@@ -48,7 +48,7 @@ namespace Weapons
             {
                 return this.critical;
             }
-            protected set
+            set
             {
                 this.critical = value;
             }

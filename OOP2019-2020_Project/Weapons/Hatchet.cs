@@ -9,12 +9,10 @@ namespace Weapons
 {
     public class Hatchet : Weapon
     {
-        public const int DEFAULT_HATCHET_DAMAGE = 7;
-        public const int DEFAULT_HATCHET_CRITICAL = 3;
-        public const int DEFAULT_BLEED_COST = 5;
+        
 
         public Hatchet()
-            : base(WeaponKind.Axe, DEFAULT_HATCHET_DAMAGE, DEFAULT_HATCHET_CRITICAL, DEFAULT_BLEED_COST)
+            : base(WeaponKind.Axe, Consts.Hatchet.DEFAULT_HATCHET_DAMAGE, Consts.Hatchet.DEFAULT_HATCHET_CRITICAL, Consts.Hatchet.DEFAULT_BLEED_COST)
         {
 
         }
@@ -31,7 +29,7 @@ namespace Weapons
                                     "| (_) ) | |    __     __     _| |\n" +
                                     "|  _ <' | |  /'__`\\ /'__`\\ /'_` |\n" +
                                     "| (_) ) | | (  ___/(  ___/( (_| |\n" +
-                                    "(____/'(___)`\\____)`\\____)`\\__,_)\n\n\n\n", ConsoleColor.Red);
+                                    "(____/'(___)`\\____)`\\____)`\\__,_)\n\n", ConsoleColor.Red);
 
                 Tools.ColorfulWriteLine("Bleed succeeded\n" +
                                         "Your enemy will bleed for 3 rounds, losing some life every round", ConsoleColor.Green);
@@ -56,8 +54,8 @@ namespace Weapons
         {
             Console.WriteLine($"Type: {base.KindOfWeapon.ToString()}\n" +
                               $"Name of weapon: {this.ToString()}\n" +
-                              $"Damage: {DEFAULT_HATCHET_DAMAGE}\n" +
-                              $"Critical: {DEFAULT_HATCHET_CRITICAL}\n" +
+                              $"Damage: {Consts.Hatchet.DEFAULT_HATCHET_DAMAGE}\n" +
+                              $"Critical: {Consts.Hatchet.DEFAULT_HATCHET_CRITICAL}\n" +
                               $"Special skill: Bleed - Some chance to inflict bleed to the enemy, it's deals some damage for 3 rounds");
         }
 

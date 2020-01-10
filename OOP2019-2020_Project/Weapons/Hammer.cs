@@ -11,12 +11,10 @@ namespace Weapons
 {
     public class Hammer : Weapon
     {
-        public const int DEFAULT_HAMMER_DAMAGE = 10;
-        public const int DEFAULT_HAMMER_CRITICAL = 0;
-        public const int DEFAULT_STUN_COST = 4;
+        
 
         public Hammer()
-            : base(WeaponKind.Blunt, DEFAULT_HAMMER_DAMAGE, DEFAULT_HAMMER_CRITICAL, DEFAULT_STUN_COST)
+            : base(WeaponKind.Blunt, Consts.Hammer.DEFAULT_HAMMER_DAMAGE, Consts.Hammer.DEFAULT_HAMMER_CRITICAL, Consts.Hammer.DEFAULT_STUN_COST)
         {
 
         }
@@ -69,8 +67,8 @@ namespace Weapons
         {
             Console.WriteLine($"Type: {base.KindOfWeapon.ToString()}\n" +
                               $"Name of weapon: {this.ToString()}\n" +
-                              $"Damage: {DEFAULT_HAMMER_DAMAGE}\n" +
-                              $"Critical: {DEFAULT_HAMMER_CRITICAL}\n" +
+                              $"Damage: {Consts.Hammer.DEFAULT_HAMMER_DAMAGE}\n" +
+                              $"Critical: {Consts.Hammer.DEFAULT_HAMMER_CRITICAL}\n" +
                               $"Special skill: Stun - Some chance to taking a round from the opponent");
         }
     }

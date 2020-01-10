@@ -83,6 +83,11 @@ namespace Characters.Opponents
             this.HealthPoints = healthPoints;
             this.Damage = damage;
             this.IsAlive = true;
+
+            if (this.HealthPoints <= 0)
+            {
+                this.IsAlive = false;
+            }
             
         }
 
@@ -126,7 +131,7 @@ namespace Characters.Opponents
                         $"{gladiator.Name} health points is equal to {gladiator.HealthPoints}\n\n" +
                         $"{this.ToString()} ability points decreased by 1\n\n" +
                         $"{this.ToString()} abilitiy points is equal to {this.AbilityPoints}\n\n" +
-                        $"\n\n\n\n" +
+                        $"\n\n" +
                         $"PRESS KEY TO CONTINUE", ConsoleColor.Red);
 
                     Console.ReadKey();
@@ -135,7 +140,7 @@ namespace Characters.Opponents
                 }
             }
 
-            if (gladiator.HealthPoints < 1)
+            if (gladiator.HealthPoints <= 0)
             {
                 Tools.ColorfulWriteLine("__   __                                                          _     _    _ _ _                     \n" +
                                         "\\ \\ / /                                                         | |   | |  (_) | |                    \n" +
@@ -152,7 +157,11 @@ namespace Characters.Opponents
                                         "  | | \\ \\_/ / |_| | | |___\\ \\_/ /\\ \\_/ /\\__/ / |___                                                   \n" +
                                         "  \\_/  \\___/ \\___/  \\_____/\\___/  \\___/\\____/\\____/                                                   \n", ConsoleColor.DarkBlue);
 
-                gladiator.IsAlive = false;
+                Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
+                                        "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
+
+                Console.ReadKey();
+                Console.Clear();
             }
 
 

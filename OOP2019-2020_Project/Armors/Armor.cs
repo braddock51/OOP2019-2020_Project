@@ -58,10 +58,12 @@ namespace Armors
             this.ArmorPoints = armorPoints;
             this.Dodge = dodge;
         }
-        
 
-            
+        public abstract void GetArmorInfo();
 
-       
+
+
+
+
     }
 }

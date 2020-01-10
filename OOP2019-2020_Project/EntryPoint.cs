@@ -17,11 +17,11 @@ namespace OOP2019_2020_Project
     {
         static void Main()
         {
-            
-         
-            bool gameOver = false;
 
-            while(!gameOver)
+
+            bool gameOver = true;
+
+            while(gameOver)
             {
                 Tools.ColorfulWriteLine("                   )    (      (         )    (                      *                            (      (     \n" +
                                         "          (     ( /(    )\\ )   )\\ )   ( /(    )\\ )                 (  `       (  (        (       )\\ )   )\\ )  \n" +
@@ -230,7 +230,7 @@ namespace OOP2019_2020_Project
                 Wolf wolfie = new Wolf();
                 int roundCounter = 0;
                 string moveSelect = null;
-                while (glad.IsAlive && wolfie.IsAlive) //napraw to gdy wolf zginie aby nie wykonywal akcji
+                while (glad.IsAlive && wolfie.IsAlive) 
                 {
                     roundCounter++;
 
@@ -243,11 +243,13 @@ namespace OOP2019_2020_Project
                                       $"3. Charge\n\n" +
                                       $"4. Weapon skill\n\n");
                         moveSelect = Console.ReadLine();
+                        Console.Clear();
                     }
-                    Console.Clear();
+                    
 
                     switch (moveSelect)
                     {
+                            
                         case "1":
                             glad.Attack(wolfie);
                             break;
@@ -277,18 +279,34 @@ namespace OOP2019_2020_Project
 
                     Random rnd = new Random();
                     int los = rnd.Next(0, 6);
-
+                    if (wolfie.HealthPoints <= 0)
+                        break;
 
                     if (glad.ArmWeapon.bleedCounter > 0)
                     {
-                        Tools.ColorfulWriteLine("Wolf bleed for 5 hp\n\n\n", ConsoleColor.DarkMagenta);
+                        Tools.ColorfulWriteLine("                    _    _       _  __   _     _               _    __             _____   _           \n" +
+                                                "                   | |  | |     | |/ _| | |   | |             | |  / _|           |  ___| | |          \n" +
+                                                "                   | |  | | ___ | | |_  | |__ | | ___  ___  __| | | |_ ___  _ __  |___ \\  | |__  _ __  \n" +
+                                                "                   | |/\\| |/ _ \\| |  _| | '_ \\| |/ _ \\/ _ \\/ _` | |  _/ _ \\| '__|     \\ \\ | '_ \\| '_ \\ \n" +
+                                                "                   \\  /\\  / (_) | | |   | |_) | |  __/  __/ (_| | | || (_) | |    /\\__/ / | | | | |_) |\n" +
+                                                "                    \\/  \\/ \\___/|_|_|   |_.__/|_|\\___|\\___|\\__,_| |_| \\___/|_|    \\____/  |_| |_| .__/ \n" +
+                                                "                                                                                                | |    \n" +
+                                                "                                                                                                |_|    ", ConsoleColor.DarkRed);
                         wolfie.HealthPoints -= 5;
                         glad.ArmWeapon.bleedCounter--;
-                        Thread.Sleep(1000);
+                        Thread.Sleep(2000);
                         Console.Clear();
                     }
 
-                    if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && glad.ArmWeapon.bleedChance && moveSelect == "4")
+                    if(glad.ArmWeapon.KindOfWeapon == WeaponKind.Sword && moveSelect == "4")
+                    {
+                        glad.ArmWeapon.Critical = Consts.LongSword.DEFAULT_LONG_SWORD_CRITICAL;
+                        glad.AbilityPoints -= Consts.LongSword.DEFAULT_COURAGE_COST;
+                        glad.Attack(wolfie);
+                        wolfie.Attack(glad);
+                    }
+                    
+                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && glad.ArmWeapon.bleedChance && moveSelect == "4")
                     {
                         glad.ArmWeapon.bleedCounter = 3;
                         Tools.ColorfulWriteLine("\n\n\n\n\n" +
@@ -353,94 +371,20 @@ namespace OOP2019_2020_Project
 
                 }
 
+                Tools.ColorfulWriteLine(" _____ _                         __             _            _   _                      ______                     \n" +
+                                        "|_   _| |                       / _|           | |          | | (_)                     |  _  \\                    \n" +
+                                        "  | | | |__   __ _ _ __ __  __ | |_ ___  _ __  | |_ ___  ___| |_ _ _ __   __ _    __ _  | | | |___ _ __ ___   ___  \n" +
+                                        "  | | | '_ \\ / _` | '_ \\ \\/ / |  _/ _ \\| '__| | __/ _ \\/ __| __| | '_ \\ / _` |  / _` | | | | / _ \\ '_ ` _ \\ / _ \\ \n" +
+                                        "  | | | | | | (_| | | | |>  <  | || (_) | |    | ||  __/\\__ \\ |_| | | | | (_| | | (_| | | |/ /  __/ | | | | | (_) |\n" +
+                                        "  \\_/ |_| |_|\\__,_|_| |_/_/\\_\\ |_| \\___/|_|     \\__\\___||___/\\__|_|_| |_|\\__, |  \\__,_| |___/ \\___|_| |_| |_|\\___/ \n" +
+                                        "                                                                          __/ |                                    \n" +
+                                        "                                                                         |___/                                     ", ConsoleColor.DarkBlue);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                gameOver = true; 
+                
             }
 
-            //while(glad.IsAlive && wolfie.IsAlive)
-            //{
-            //    Console.WriteLine("Gladiator turn:\n" +
-            //        "1. Attack\n" +
-            //        "2. Defend\n" +
-            //        "3.Charge\n" +
-            //        "4. Skill");
-            //    int select = int.Parse(Console.ReadLine());
-            //
-            //    switch (select)
-            //    {
-            //        case 1:
-            //            glad.Attack(wolfie);
-            //            
-            //            break;
-            //        case 2:
-            //            glad.Defend();
-            //            
-            //            break;
-            //        case 3:
-            //            glad.Charge();
-            //            
-            //            break;
-            //           
-            //    }
-            //    
-            //    Console.WriteLine("Wolf turn:\n" +
-            //        "1. Attack\n" +
-            //        "2. Defend\n" +
-            //        "3.Charge\n" +
-            //        "4. Skill");
-            //    int enemySelect = int.Parse(Console.ReadLine());
-            //
-            //    switch (enemySelect)
-            //    {
-            //        case 1:
-            //            wolfie.Attack(glad);
-            //            Console.WriteLine($"Glad health is {glad.HealthPoints}");
-            //            break;
-            //        case 2:
-            //            wolfie.Defend();
-            //            Console.WriteLine($"Wolf health is {wolfie.HealthPoints}");
-            //            break;
-            //        case 3:
-            //            wolfie.Charge();
-            //            Console.WriteLine($"Wolfie AbilityPoints is {wolfie.AbilityPoints}");
-            //            break;
-            //        case 4:
-            //            wolfie.Skill(glad);
-            //            break;
-            //
-            //
-            //    }
-            //    if(glad.HealthPoints == 0)
-            //    {
-            //        glad.IsAlive = false;
-            //        Tools.ColorfulWriteLine($"{wolfie.ToString()} defeat you.\n" +
-            //            $"You DIED", ConsoleColor.Red);
-            //    }
-            //    else if(wolfie.HealthPoints == 0)
-            //    {
-            //        glad.IsAlive = false;
-            //        Tools.ColorfulWriteLine($"You defeat {wolfie.ToString()}.\n\n" +
-            //            $"{glad.Name} is victorious", ConsoleColor.Green);
-            //    }
-            //}
-
-            Console.ReadLine();
+            
         }
     }
 }

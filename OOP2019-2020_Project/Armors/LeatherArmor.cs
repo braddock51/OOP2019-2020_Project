@@ -1,16 +1,21 @@
 ﻿using Enums;
+using Utilities;
 
 namespace Armors
 {
     public class LeatherArmor : Armor
     {
-        public const int LEATHER_ARMOR_ARMOR_POINTS = 5;
-        public const int LEATHER_ARMOR_DODGE = 5;
+        
         
         public LeatherArmor()
-            : base(ArmorKind.Light, LEATHER_ARMOR_ARMOR_POINTS, LEATHER_ARMOR_DODGE)
+            : base(ArmorKind.Light, Consts.LeatherArmor.LEATHER_ARMOR_ARMOR_POINTS, Consts.LeatherArmor.LEATHER_ARMOR_DODGE)
         {
 
+        }
+
+        public override void GetArmorInfo()
+        {
+            throw new System.NotImplementedException();
         }
 
         public override string ToString()
