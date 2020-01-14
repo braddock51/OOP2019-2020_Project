@@ -1,4 +1,5 @@
 ﻿using Enums;
+using System;
 using Utilities;
 
 namespace Armors
@@ -15,7 +16,10 @@ namespace Armors
 
         public override void GetArmorInfo()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Type: {base.KindOfArmor.ToString()}\n" +
+                              $"Name of armor: {this.ToString()}\n" +
+                              $"Armor points: {Consts.LeatherArmor.LEATHER_ARMOR_ARMOR_POINTS}\n" +
+                              $"Dodge: {Consts.LeatherArmor.LEATHER_ARMOR_DODGE}\n");
         }
 
         public override string ToString()

@@ -38,14 +38,7 @@ namespace Characters.Opponents
             }
             set
             {
-                if (value >= 0 && value <= 100)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    //throw new ArgumentOutOfRangeException(string.Empty, "Inappropriate value, the value should be >= 0 and <= 100.");
-                }
+                this.healthPoints = value;
             }
         }
         public int Damage 
@@ -84,16 +77,12 @@ namespace Characters.Opponents
             this.Damage = damage;
             this.IsAlive = true;
 
-            if (this.HealthPoints <= 0)
-            {
-                this.IsAlive = false;
-            }
             
         }
 
         public void Attack(Gladiator gladiator)
         {
-            int los = rnd.Next(1, 16);
+            int los = rnd.Next(1, 20);
             
 
             if (this.AbilityPoints <= 0)
@@ -159,6 +148,8 @@ namespace Characters.Opponents
 
                 Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
                                         "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
+
+                gladiator.IsAlive = false;
 
                 Console.ReadKey();
                 Console.Clear();

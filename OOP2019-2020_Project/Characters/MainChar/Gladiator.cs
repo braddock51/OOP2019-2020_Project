@@ -125,12 +125,9 @@ namespace Characters.MainChar
             this.level = 1;
             this.IsAlive = true;
 
-            if (this.HealthPoints <= 0)
-            {
-                this.IsAlive = false;
-            }
-
         }
+            
+
 
         public void Attack(Opponent enemy)
         {
@@ -164,20 +161,20 @@ namespace Characters.MainChar
             
             else
             {
-                int criticalRnd = rnd.Next(1, 21);
+                int criticalRnd = rnd.Next(1, 18);
                 
                 
                 
-                if (criticalRnd >= 0 && criticalRnd <= this.ArmWeapon.Critical)
+                if (criticalRnd <= this.ArmWeapon.Critical)
                 {
                         
                         
-                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 3;
+                    enemy.HealthPoints = enemy.HealthPoints - this.ArmWeapon.Damage * 4;
                         this.AbilityPoints--;
-                        Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 3} to {enemy.ToString()}\n\n" +
+                        Tools.ColorfulWriteLine($"{this.Name} has critical hit for {this.ArmWeapon.Damage * 4} to {enemy.ToString()}\n\n" +
                             $"{enemy.ToString()} health points is equal to {enemy.HealthPoints}\n\n" +
-                            $"Your ability points decreased by {attackCost + this.ArmWeapon.SkillCost}\n\n" +
-                            $"Now you have {this.AbilityPoints - (attackCost + this.ArmWeapon.SkillCost)} ability points" +
+                            $"Your ability points decreased by {attackCost}\n\n" +
+                            $"Now you have {this.AbilityPoints - (attackCost)} ability points" +
                             $"\n\n\n\n" +
                             $"PRESS KEY TO CONTINUE", ConsoleColor.Green);
 
@@ -204,17 +201,7 @@ namespace Characters.MainChar
                 }
                 
                 
-                if(enemy.HealthPoints <= 0)
-                {
-                    Tools.ColorfulWriteLine($"\n\n\n\n\n                          You kill the wolf.\n" +
-                                            $"                          {this.Name} is victourius !!!", ConsoleColor.DarkGreen);
-
-                    Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
-                                        "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
-
-                    Console.ReadKey();
-                    Console.Clear();
-                }
+                
 
             }
                     

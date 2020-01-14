@@ -157,6 +157,11 @@ namespace OOP2019_2020_Project
                         Console.WriteLine("\n\n" +
                                           "Weapon info:\n");
                         glad.ArmWeapon.GetWeaponInfo();
+
+                        Console.WriteLine("\n\n" +
+                                          "Armor info:\n");
+                        glad.ChestArmor.GetArmorInfo();
+
                         Console.WriteLine("\n\n\n\n" +
                                           "PRESS ANY KEY TO CONTINUE");
                         Console.ReadKey();
@@ -230,7 +235,7 @@ namespace OOP2019_2020_Project
                 Wolf wolfie = new Wolf();
                 int roundCounter = 0;
                 string moveSelect = null;
-                while (glad.IsAlive && wolfie.IsAlive) 
+                while (glad.IsAlive) 
                 {
                     roundCounter++;
 
@@ -279,8 +284,20 @@ namespace OOP2019_2020_Project
 
                     Random rnd = new Random();
                     int los = rnd.Next(0, 6);
+
                     if (wolfie.HealthPoints <= 0)
+                    {
+                        Tools.ColorfulWriteLine($"\n\n\n\n\n                          You kill the wolf.\n" +
+                                                $"                          {glad.Name} is victourius !!!", ConsoleColor.DarkGreen);
+
+                        Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
+                                            "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
+
+
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
+                    }
 
                     if (glad.ArmWeapon.bleedCounter > 0)
                     {
@@ -294,15 +311,21 @@ namespace OOP2019_2020_Project
                                                 "                                                                                                |_|    ", ConsoleColor.DarkRed);
                         wolfie.HealthPoints -= 5;
                         glad.ArmWeapon.bleedCounter--;
+
+                        
+
                         Thread.Sleep(2000);
                         Console.Clear();
                     }
 
+                    
+
                     if(glad.ArmWeapon.KindOfWeapon == WeaponKind.Sword && moveSelect == "4")
                     {
-                        glad.ArmWeapon.Critical = Consts.LongSword.DEFAULT_LONG_SWORD_CRITICAL;
+                        
                         glad.AbilityPoints -= Consts.LongSword.DEFAULT_COURAGE_COST;
                         glad.Attack(wolfie);
+                        glad.ArmWeapon.Critical = Consts.LongSword.DEFAULT_LONG_SWORD_CRITICAL;
                         wolfie.Attack(glad);
                     }
                     
@@ -371,17 +394,45 @@ namespace OOP2019_2020_Project
 
                 }
 
-                Tools.ColorfulWriteLine(" _____ _                         __             _            _   _                      ______                     \n" +
-                                        "|_   _| |                       / _|           | |          | | (_)                     |  _  \\                    \n" +
-                                        "  | | | |__   __ _ _ __ __  __ | |_ ___  _ __  | |_ ___  ___| |_ _ _ __   __ _    __ _  | | | |___ _ __ ___   ___  \n" +
-                                        "  | | | '_ \\ / _` | '_ \\ \\/ / |  _/ _ \\| '__| | __/ _ \\/ __| __| | '_ \\ / _` |  / _` | | | | / _ \\ '_ ` _ \\ / _ \\ \n" +
-                                        "  | | | | | | (_| | | | |>  <  | || (_) | |    | ||  __/\\__ \\ |_| | | | | (_| | | (_| | | |/ /  __/ | | | | | (_) |\n" +
-                                        "  \\_/ |_| |_|\\__,_|_| |_/_/\\_\\ |_| \\___/|_|     \\__\\___||___/\\__|_|_| |_|\\__, |  \\__,_| |___/ \\___|_| |_| |_|\\___/ \n" +
-                                        "                                                                          __/ |                                    \n" +
-                                        "                                                                         |___/                                     ", ConsoleColor.DarkBlue);
+                Tools.ColorfulWriteLine(" ____  _  _   __   __ _  __ _  ____    ____  __  ____    ____  ____  ____  ____  __  __ _   ___ \n" +
+                                        "(_  _)/ )( \\ / _\\ (  ( \\(  / )/ ___)  (  __)/  \\(  _ \\  (_  _)(  __)/ ___)(_  _)(  )(  ( \\ / __)\n" +
+                                        "  )(  ) __ (/    \\/    / )  ( \\___ \\   ) _)(  O ))   /    )(   ) _) \\___ \\  )(   )( /    /( (_ \\\n" +
+                                        " (__) \\_)(_/\\_/\\_/\\_)__)(__\\_)(____/  (__)  \\__/(__\\_)   (__) (____)(____/ (__) (__)\\_)__) \\___/\n" +
+                                        "   ____  _  _  ____    ____  ____  _  _   __                                                    \n" +
+                                        "  (_  _)/ )( \\(  __)  (    \\(  __)( \\/ ) /  \\                                                   \n" +
+                                        "    )(  ) __ ( ) _)    ) D ( ) _) / \\/ \\(  O )                                                  \n" +
+                                        "   (__) \\_)(_/(____)  (____/(____)\\_)(_/ \\__/                                                   \n", ConsoleColor.Green);
 
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n" +
+                                  "\t\t\t\t\t\t\t\tCreated by Maksymilian Wrobel");
+
+                Thread.Sleep(6000);
+                Console.Clear();
+                string select= null;
+                while (select != "y" && select != "n")
+                {
+                    Tools.ColorfulWriteLine("Start again ? (y/n)", ConsoleColor.DarkGray);
+                    select = Console.ReadLine();
+                }
+
+                if (select == "y")
+                {
+                    Console.Clear();
+                    continue;
+                }
+                
+
+                else
+                    gameOver = false;
+                
 
                 
+
+
+
+
+
+
             }
 
             
