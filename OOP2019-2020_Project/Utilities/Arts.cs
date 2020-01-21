@@ -122,7 +122,7 @@ namespace Utilities
                                     "                   _.-'       d$$$$    \n" +
                                     "                 .' ..       d$$$$;    \n" +
                                     "                /  /P'      d$$$$P. |\\ \n" +
-                                    "               /   '      .d$$$P' |\\^'l                                            PRESS ANY KEY TO START FIGHT\n" +
+                                    "               /   '      .d$$$P' |\\^'l                                           \n" +
                                     "             .'           `T$P^'''''  :\n" +
                                     "         ._.'      _.'                ;\n" +
                                     "      `-.-'.-'-' ._.       _.-'    .-' \n" +
@@ -138,7 +138,7 @@ namespace Utilities
 
 
 
-            Console.ReadKey();
+            Thread.Sleep(2000);
             Console.Clear();
         }
 
