@@ -46,7 +46,7 @@ namespace Weapons
                               $"Name of weapon: {this.ToString()}\n" +
                               $"Damage: {Consts.LongSword.DEFAULT_LONG_SWORD_DAMAGE}\n" +
                               $"Critical: {Consts.LongSword.DEFAULT_LONG_SWORD_CRITICAL}\n" +
-                              $"Special skill: Courage - add 5 critical points for one round");
+                              $"Special skill: Courage - add 5 critical points for one round\n");
         }
 
         public override void Skill(Opponent enemy)

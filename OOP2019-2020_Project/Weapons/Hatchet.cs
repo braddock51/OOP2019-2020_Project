@@ -56,7 +56,7 @@ namespace Weapons
                               $"Name of weapon: {this.ToString()}\n" +
                               $"Damage: {Consts.Hatchet.DEFAULT_HATCHET_DAMAGE}\n" +
                               $"Critical: {Consts.Hatchet.DEFAULT_HATCHET_CRITICAL}\n" +
-                              $"Special skill: Bleed - Some chance to inflict bleed to the enemy, it's deals some damage for 3 rounds");
+                              $"Special skill: Bleed - Some chance to inflict bleed to the enemy, it's deals some damage for 3 rounds\n");
         }
 
         public override void Skill(Opponent enemy)

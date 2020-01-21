@@ -19,7 +19,7 @@ namespace Characters.MainChar
 
         private int abilityPoints;
         private int healthPoints;
-        private int level;
+        
 
         private Armor chestArmor;
         private Weapon armWeapon;
@@ -60,22 +60,7 @@ namespace Characters.MainChar
                 this.healthPoints = value;
             }
         }
-        public int Level
-        {
-            get
-            {
-                return this.level;
-            }
-            set
-            {
-                if (value > 5)
-                    throw new ArgumentOutOfRangeException(string.Empty, "Maximum level is 5");
-                else if (value < 0)
-                    throw new ArgumentOutOfRangeException(string.Empty, "Level can't be lesser then 0");
-                else
-                    this.level = value;
-            }
-        }
+        
 
         public Armor ChestArmor
         {
@@ -122,8 +107,8 @@ namespace Characters.MainChar
             this.Name = name;
             this.AbilityPoints = Consts.Gladiator.DEFAULT_GLADIATOR_ABILITY_POINTS;
             this.HealthPoints = Consts.Gladiator.DEFAULT_GLADIATOR_HEALTH_POINTS;
-            this.level = 1;
             this.IsAlive = true;
+            
 
         }
             
@@ -274,7 +259,12 @@ namespace Characters.MainChar
         }
             
            
-
+        public void GetGladiatorStats()
+        {
+            Console.WriteLine($"Name: {this.Name}\n" +
+                              $"Health: {this.HealthPoints}\n" +
+                              $"Ability points: {this.AbilityPoints}\n");
+        }
 
     }
 }

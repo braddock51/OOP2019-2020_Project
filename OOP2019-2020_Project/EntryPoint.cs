@@ -19,252 +19,152 @@ namespace OOP2019_2020_Project
         {
 
 
-            bool gameOver = true;
-
-            while(gameOver)
+            try
             {
-                Tools.ColorfulWriteLine("                   )    (      (         )    (                      *                            (      (     \n" +
-                                        "          (     ( /(    )\\ )   )\\ )   ( /(    )\\ )                 (  `       (  (        (       )\\ )   )\\ )  \n" +
-                                        "          )\\    )\\())  (()/(  (()/(   )\\())  (()/(   (        (    )\\))(      )\\))(   '   )\\     (()/(  (()/(  \n" +
-                                        "        (((_)  ((_)\\    /(_))  /(_)) ((_)\\    /(_))  )\\       )\\  ((_)()\\    ((_)()\\ ) ((((_)(    /(_))  /(_)) \n" +
-                                        "        )\\___    ((_)  (_))   (_))     ((_)  (_))   ((_)   _ ((_) (_()((_)   _(())\\_)() )\\ _ )\\  (_))   (_))   \n" +
-                                        "       ((/ __|  / _ \\  | |    | |     / _ \\  / __|  | __| | | | | |  \\/  |   \\ \\((_)/ / (_)_\\(_) | _ \\  / __|  \n" +
-                                        "        | (__  | (_) | | |__  | |__  | (_) | \\__ \\  | _|  | |_| | | |\\/| |    \\ \\/\\/ /   / _ \\   |   /  \\__ \\  \n" +
-                                        "         \\___|  \\___/  |____| |____|  \\___/  |___/  |___|  \\___/  |_|  |_|     \\_/\\_/   /_/ \\_\\  |_|_\\  |___/  ", ConsoleColor.DarkRed);
+                bool gameOver = true;
 
-                Tools.ColorfulWriteLine("\n\n\n\n\n\n\n\n\n\n\n\n                                               PRESS ANY KEY TO START", ConsoleColor.White);
-
-                Console.ReadKey();
-                Console.Clear();
-
-                Tools.ColorfulWriteLine("  _  _   _     ___ _        _       _     __          _  ___     ___ _   _  \n" +
-                                        " /  |_) |_  /\\  | |_   \\_/ / \\ | | |_)   /__ |   /\\  | \\  |   /\\  | / \\ |_) \n" +
-                                        " \\_ | \\ |_ /--\\ | |_    |  \\_/ |_| | \\   \\_| |_ /--\\ |_/ _|_ /--\\ | \\_/ | \\ ", ConsoleColor.DarkRed);
-
-                Tools.ColorfulWriteLine("\n\n\n\n" +
-                                        "  __                                              \n" +
-                                        " /__ o     _    _|_ |_   _    ._   _. ._ _   _  o \n" +
-                                        " \\_| | \\/ (/_    |_ | | (/_   | | (_| | | | (/_ o \n", ConsoleColor.White);
-                string name = Console.ReadLine();
-                Gladiator glad = new Gladiator(name);
-                GladiatorInfo.GladiatorInitialize(glad);
-                Console.Clear();
-
-                Tools.ColorfulWriteLine("                                  __          _  ___     ___ _   _    \n" +
-                                        "  /\\  ._ ._ _        _      ._   /__ |   /\\  | \\  |   /\\  | / \\ |_)  \n" +
-                                        " /--\\ |  | | |   \\/ (_) |_| |    \\_| |_ /--\\ |_/ _|_ /--\\ | \\_/ | \\  \n" +
-                                        "                 /                                                    ", ConsoleColor.DarkRed);
-                Thread.Sleep(1500);
-                Console.Clear();
-
-                string weaponSelect = null;
-                while(weaponSelect != "a" && weaponSelect != "b" && weaponSelect != "c")
-                { 
-                    Tools.ColorfulWriteLine("  _                                                       \n" +
-                                            " /  |_   _   _   _  _        _      ._    _   _   _. ._ o \n" +
-                                            " \\_ | | (_) (_) _> (/_   \\/ (_) |_| |    (_| (/_ (_| |  o \n" +
-                                            "                         /                _|              \n" +
-                                            "\n\n\n" +
-                                            " \\    / _   _. ._   _  ._   _ o \n" +
-                                            "  \\/\\/ (/_ (_| |_) (_) | | _> o \n" +
-                                            "               |                \n" +
-                                            "\n\n\n\n" +
-                                            "  _. \\    |   _  ._   _    (_        _  ._ _| \n" +
-                                            " (_|  |   |_ (_) | | (_|   __) \\/\\/ (_) | (_| \n" +
-                                            "     /                _|                      \n\n" +
-                                            "" +
-                                            " |_ \\    |_|  _. _|_  _ |_   _ _|_ \n" +
-                                            " |_) |   | | (_|  |_ (_ | | (/_ |_ \n" +
-                                            "    /                              \n\n" +
-                                            "  _ \\    |_|  _. ._ _  ._ _   _  ._ \n" +
-                                            " (_  |   | | (_| | | | | | | (/_ |  \n" +
-                                            "    /                               \n\n\n\n\n", ConsoleColor.White);
-                    weaponSelect = Console.ReadLine();
-                    
-                    Console.Clear();
-                    
-
-                }
-                
-                switch (weaponSelect)
+                while (gameOver)
                 {
-                    case "a":
-                        glad.ArmWeapon = new LongSword();
-                        break;
-                    case "b":
-                        glad.ArmWeapon = new Hatchet();
-                        break;
-                    case "c":
-                        glad.ArmWeapon = new Hammer();
-                        break;
-                }
 
-                string armorSelect = null;
-                while (armorSelect != "a" && armorSelect != "b" && armorSelect != "c")
-                {
-                    Tools.ColorfulWriteLine("  /\\  ._ ._ _   _  ._ _ o \n" +
-                                            " /--\\ |  | | | (_) | _> o \n" +
-                                            "\n\n\n\n" +
-                                            "           _         _                 \n" +
-                                            "  _. \\    |_    | | |_) |   _. _|_  _  \n" +
-                                            " (_|  |   | |_| | | |   |_ (_|  |_ (/_ \n" +
-                                            "    /                                 \n\n" +
-                                            "          _                    _                \n" +
-                                            " |_ \\    |_) ._ _   _.  _ _|_ |_) |  _. _|_  _  \n" +
-                                            " |_) |   |_) | (/_ (_| _>  |_ |   | (_|  |_ (/_ \n" +
-                                            "    /                                           \n\n" +
-                                            "  _ \\    |   _   _. _|_ |_   _  ._ \n" +
-                                            " (_  |   |_ (/_ (_|  |_ | | (/_ |  \n" +
-                                            "    /                              \n", ConsoleColor.White);
-                    armorSelect = Console.ReadLine();
-                    Console.Clear();
-                }
-
-                switch (armorSelect)
-                {
-                    case "a":
-                        glad.ChestArmor = new FullPlateArmor();
-                        break;
-                    case "b":
-                        glad.ChestArmor = new BreastPlate();
-                        break;
-                    case "c":
-                        glad.ChestArmor = new LeatherArmor();
-                        break;
-                }
-
-                GladiatorInfo.UpdateFullInfo(glad);
-
-                string startSelect = null;
-                while(startSelect != "1" && startSelect != "2")
-                {
-                    
-                    Tools.ColorfulWriteLine(" ___                                                                                                                  \n" +
-                                            "  |    ._   _    /|   _|_  _     _ |_   _   _ |        _      ._    _  |  _.  _| o  _. _|_  _  ._    _ _|_  _. _|_  _ \n" +
-                                            "  | \\/ |_) (/_    |    |_ (_)   (_ | | (/_ (_ |<   \\/ (_) |_| |    (_| | (_| (_| | (_|  |_ (_) |    _>  |_ (_|  |_ _> \n" +
-                                            "    /  |                                           /                _|                                                \n\n\n", ConsoleColor.Magenta);
-
-                    Tools.ColorfulWriteLine(" ___             _               __ ___      _ ___    __            _ \n" +
-                                            "  |    ._   _     )   _|_  _    (_   |  /\\  |_) |    /__  /\\  |\\/| |_ \n" +
-                                            "  | \\/ |_) (/_   /_    |_ (_)   __)  | /--\\ | \\ |    \\_| /--\\ |  | |_ \n" +
-                                            "    /  |                                                              \n\n\n", ConsoleColor.Red);
-                    startSelect = Console.ReadLine();
-                    Console.Clear();
-
-                    if(startSelect == "1")
+                    string startMenuSelect = null;
+                    while (startMenuSelect != "0" && startMenuSelect != "1" && startMenuSelect != "2")
                     {
-                        GladiatorInfo.PrintFullInfo();
-                        Console.WriteLine("\n\n" +
-                                          "Weapon info:\n");
-                        glad.ArmWeapon.GetWeaponInfo();
+                        Arts.StartMenu();
+                        startMenuSelect = Console.ReadLine();
+                        Console.Clear();
+                        if (startMenuSelect == "2")
+                        {
+                            Tools.AuthorInfo();
+                            Tools.ColorfulWriteLine("\n\n\n\n\nPRESS ANY KEY", ConsoleColor.Green);
+                            Console.ReadKey();
+                            Console.Clear();
+                            startMenuSelect = null;
+                        }
 
-                        Console.WriteLine("\n\n" +
-                                          "Armor info:\n");
-                        glad.ChestArmor.GetArmorInfo();
+                    }
 
-                        Console.WriteLine("\n\n\n\n" +
-                                          "PRESS ANY KEY TO CONTINUE");
-                        Console.ReadKey();
 
-                        startSelect = null;
+                    if (startMenuSelect == "0")
+                        break;
+
+
+
+                    Arts.GladiatorName();
+                    string name = Console.ReadLine();
+                    Gladiator glad = new Gladiator(name);
+
+                    Console.Clear();
+
+                    Arts.ArmYourGladiator();
+
+                    Thread.Sleep(1500);
+                    Console.Clear();
+
+
+
+
+                    string weaponSelect = null;
+                    while (weaponSelect != "a" && weaponSelect != "b" && weaponSelect != "c")
+                    {
+                        Arts.ChoseYourWeapon();
+                        weaponSelect = Console.ReadLine();
+
+                        Console.Clear();
+
+
+                    }
+
+                    switch (weaponSelect)
+                    {
+                        case "a":
+                            glad.ArmWeapon = new LongSword();
+                            break;
+                        case "b":
+                            glad.ArmWeapon = new Hatchet();
+                            break;
+                        case "c":
+                            glad.ArmWeapon = new Hammer();
+                            break;
+                    }
+
+                    string armorSelect = null;
+                    while (armorSelect != "a" && armorSelect != "b" && armorSelect != "c")
+                    {
+                        Arts.ChoseYourArmor();
+                        armorSelect = Console.ReadLine();
                         Console.Clear();
                     }
-                    if (startSelect == "2")
-                        break;
-                }
 
-
-                Tools.ColorfulWriteLine("                            @@@  @@@  @@@ @@@@@@@@ @@@       @@@@@@@  @@@@@@  @@@@@@@@@@  @@@@@@@@\n" +
-                                        "                            @@!  @@!  @@! @@!      @@!      !@@      @@!  @@@ @@! @@! @@! @@!     \n" +
-                                        "                            @!!  !!@  @!@ @!!!:!   @!!      !@!      @!@  !@! @!! !!@ @!@ @!!!:!  \n" +
-                                        "                             !:  !!:  !!  !!:      !!:      :!!      !!:  !!! !!:     !!: !!:     \n" +
-                                        "                              ::.:  :::   : :: ::: : ::.: :  :: :: :  : :. :   :      :   : :: :::\n\n\n\n", ConsoleColor.Red);
-
-                Tools.ColorfulWriteLine("                        , .  .   ,---. .  . ,--.    ,-.  ,-.  ,    ,     ,-.   ,-.  .  . ,--. .   , \n" +
-                                        "                        | |\\ |     |   |  | |      /    /   \\ |    |    /   \\ (   ` |  | |    |\\ /| \n" +
-                                        "                        | | \\|     |   |--| |-     |    |   | |    |    |   |  `-.  |  | |-   | V | \n" +
-                                        "                        | |  |     |   |  | |      \\    \\   / |    |    \\   / .   ) |  | |    |   | \n" +
-                                        "                        ' '  '     '   '  ' `--'    `-'  `-'  `--' `--'  `-'   `-'  `--` `--' '   ' \n\n\n\n", ConsoleColor.DarkYellow);
-
-                Tools.ColorfulWriteLine("                                               PREPARE FOR THE BATTLE\n\n\n\n", ConsoleColor.Blue);
-
-                Tools.ColorfulWriteLine("           _   _ ____ _  _ ____    ____ _ ____ ____ ___    ____ ___  ___  ____ _  _ ____ _  _ ___    _ ____    \n" +
-                                        "            \\_/  |  | |  | |__/    |___ | |__/ [__   |     |  | |__] |__] |  | |\\ | |___ |\\ |  |     | [__     \n" +
-                                        "             |   |__| |__| |  \\    |    | |  \\ ___]  |     |__| |    |    |__| | \\| |___ | \\|  |     | ___] ...\n", ConsoleColor.Cyan);
-                Thread.Sleep(2000);
-                Console.Clear();
-
-                Tools.ColorfulWriteLine("\n\n                                            ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▀▀▄     ▄▀▀▀█▄   \n" +
-                                        "                                           █   █      █ █      █ █    █     █  ▄▀  ▀▄ \n" +
-                                        "                                             █        █ █      █     █      █▄▄▄▄   \n" +
-                                        "                                             █   ▄    █  ▀▄    ▄▀     █       █       \n" +
-                                        "                                              ▀▄▀ ▀▄ ▄▀    ▀▀▀▀     ▄▀▄▄▄▄▄▄▀ █        \n" +
-                                        "                                                    ▀               █        █         \n" +
-                                        "                                                                                     \n" +
-                                        "                            .d$$b      \n" +
-                                        "                          .' TO$;\\     \n" +
-                                        "                         /  : TP._;    \n" +
-                                        "                        / _.;  :Tb|    \n" +
-                                        "                       /   /   ;j$j    \n" +
-                                        "                   _.-'       d$$$$    \n" +
-                                        "                 .' ..       d$$$$;    \n" +
-                                        "                /  /P'      d$$$$P. |\\ \n" +
-                                        "               /   '      .d$$$P' |\\^'l                                            PRESS ANY KEY TO START FIGHT\n" +
-                                        "             .'           `T$P^'''''  :\n" +
-                                        "         ._.'      _.'                ;\n" +
-                                        "      `-.-'.-'-' ._.       _.-'    .-' \n" +
-                                        "    `.-' _____  ._              .-'    \n" +
-                                        "   -(.g$$$$$$$b.              .'       \n" +
-                                        "     ''^^T$$$P^)            .(:        \n" +
-                                        "       _/  -'  /.'         /:/;        \n" +
-                                        "    ._.'-'`-'  ')/         /;/;        \n" +
-                                        " `-.-'..--''   ' /         /  ;        \n" +
-                                        ".-' ..--''        -'          :        \n" +
-                                        "..--''--.-'         (\\      .-(\\       \n" +
-                                        "  ..--''              `-\\(\\/;`         \n", ConsoleColor.DarkGray);
-                                      
-
-
-                Console.ReadKey();
-                Console.Clear();
-
-
-
-
-
-                Wolf wolfie = new Wolf();
-                int roundCounter = 0;
-                string moveSelect = null;
-                while (glad.IsAlive) 
-                {
-                    roundCounter++;
-
-                    while (moveSelect != "1" && moveSelect != "2" && moveSelect != "3" && moveSelect != "4")
+                    switch (armorSelect)
                     {
-                        Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
-                                      $"Make your move:\n\n" +
-                                      $"1. Attack\n\n" +
-                                      $"2. Defend\n\n" +
-                                      $"3. Charge\n\n" +
-                                      $"4. Weapon skill\n\n");
-                        moveSelect = Console.ReadLine();
-                        Console.Clear();
+                        case "a":
+                            glad.ChestArmor = new FullPlateArmor();
+                            break;
+                        case "b":
+                            glad.ChestArmor = new BreastPlate();
+                            break;
+                        case "c":
+                            glad.ChestArmor = new LeatherArmor();
+                            break;
                     }
-                    
 
-                    switch (moveSelect)
+
+
+                    string startSelect = null;
+                    while (startSelect != "1" && startSelect != "2" && startSelect != "0")
                     {
-                            
-                        case "1":
+                        Tools.ColorfulWriteLine("1: START THE FIGHT\n\n" +
+                                                "2: CHECK YOUR GLADIATOR STATS\n\n" +
+                                                "0: return to the first menu.", ConsoleColor.Red);
+                        startSelect = Console.ReadLine();
+                        Console.Clear();
+
+                        if (startSelect == "2")
+                        {
+                            glad.GetGladiatorStats();
+                            glad.ArmWeapon.GetWeaponInfo();
+                            glad.ChestArmor.GetArmorInfo();
+                            Tools.ColorfulWriteLine("\n\n\n\n\nPRESS ANY KEY", ConsoleColor.Green);
+                            Console.ReadKey();
+                            startSelect = null;
+                            Console.Clear();
+
+                        }
+                    }
+
+                    if (startSelect == "0")
+                        continue;
+
+                    Arts.Intro();
+
+                    Wolf wolfie = new Wolf();
+                    int roundCounter = 0;
+                    string moveSelect = null;
+                    while (glad.IsAlive)
+                    {
+                        roundCounter++;
+
+                        while (moveSelect != "1" && moveSelect != "2" && moveSelect != "3" && moveSelect != "4" && moveSelect != "0")
+                        {
+                            Console.WriteLine($"                                Round {roundCounter}\n\n\n\n" +
+                                          $"Make your move:\n\n" +
+                                          $"1. Attack\n\n" +
+                                          $"2. Defend\n\n" +
+                                          $"3. Charge\n\n" +
+                                          $"4. Weapon skill\n\n\n\n\n\n" +
+                                          $"0: break the fight and come back to main menu");
+                            moveSelect = Console.ReadLine();
+                            Console.Clear();
+                        }
+
+                        if (moveSelect == "1")
                             glad.Attack(wolfie);
-                            break;
-                        case "2":
+                        else if (moveSelect == "2")
                             glad.Defend();
-                            break;
-                        case "3":
-                            glad.Charge();
-                            break;
-                        case "4":
+                        else if (moveSelect == "3")
+                            glad.Defend();
+                        else if (moveSelect == "4")
+                        {
                             if (glad.AbilityPoints >= 4)
                                 glad.ArmWeapon.Skill(wolfie);
                             else
@@ -278,164 +178,135 @@ namespace OOP2019_2020_Project
                                 goto Found;
 
                             }
+                        }
+                        else
+                            goto MainMenu;
 
+
+
+                        Random rnd = new Random();
+                        int los = rnd.Next(0, 6);
+
+                        if (wolfie.HealthPoints <= 0)
+                        {
+                            Tools.ColorfulWriteLine($"\n\n\n\n\n                          You kill the wolf.\n" +
+                                                    $"                          {glad.Name} is victourius !!!", ConsoleColor.DarkGreen);
+
+                            Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
+                                                "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
+
+
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
+                        }
+
+                        if (glad.ArmWeapon.bleedCounter > 0)
+                        {
+                            Arts.Bleed();
+                            wolfie.HealthPoints -= 5;
+                            glad.ArmWeapon.bleedCounter--;
+
+
+
+                            Thread.Sleep(2000);
+                            Console.Clear();
+                        }
+
+
+
+                        if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Sword && moveSelect == "4")
+                        {
+
+                            glad.AbilityPoints -= Consts.LongSword.DEFAULT_COURAGE_COST;
+                            glad.Attack(wolfie);
+                            glad.ArmWeapon.Critical = Consts.LongSword.DEFAULT_LONG_SWORD_CRITICAL;
+                            wolfie.Attack(glad);
+                        }
+
+                        else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && glad.ArmWeapon.bleedChance && moveSelect == "4")
+                        {
+                            glad.ArmWeapon.bleedCounter = 3;
+                            Tools.ColorfulWriteLine("\n\n\n\n\n" +
+                                                    "Your AP decrease by 5\n\n\n\n\n", ConsoleColor.Green);
+
+                            glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                            wolfie.Attack(glad);
+                        }
+                        else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && !glad.ArmWeapon.bleedChance && moveSelect == "4")
+                        {
+                            Tools.ColorfulWriteLine("\n\n\n\n\n" +
+                                                    "Your AP decrease by 5\n\n\n\n\n", ConsoleColor.Green);
+
+                            glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                            wolfie.Attack(glad);
+                        }
+
+
+                        else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Blunt && glad.ArmWeapon.stunChance && moveSelect == "4")
+                        {
+                            glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                            glad.Attack(wolfie);
+
+                        }
+
+                        else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Blunt && !glad.ArmWeapon.stunChance && moveSelect == "4")
+                        {
+
+                            glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
+                            wolfie.Attack(glad);
+
+                        }
+
+                        else if (los > 2)
+                        {
+                            wolfie.Skill(glad);
+
+                        }
+
+                        else if (wolfie.AbilityPoints < 3)
+                        {
+                            wolfie.Charge();
+                        }
+
+                        else if (wolfie.HealthPoints < 5 && los > 2)
+                        {
+                            wolfie.Defend();
+                        }
+
+                        else
+                        {
+                            wolfie.Attack(glad);
+                        }
+
+                    Found:
+                        moveSelect = null;
+
+
+
+
+
+
                     }
 
-                    Random rnd = new Random();
-                    int los = rnd.Next(0, 6);
 
-                    if (wolfie.HealthPoints <= 0)
-                    {
-                        Tools.ColorfulWriteLine($"\n\n\n\n\n                          You kill the wolf.\n" +
-                                                $"                          {glad.Name} is victourius !!!", ConsoleColor.DarkGreen);
-
-                        Tools.ColorfulWriteLine("\n\n\n\n\n\n" +
-                                            "PRESS ANY KEY TO CONTINUE", ConsoleColor.White);
-
-
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
-                    }
-
-                    if (glad.ArmWeapon.bleedCounter > 0)
-                    {
-                        Tools.ColorfulWriteLine("                    _    _       _  __   _     _               _    __             _____   _           \n" +
-                                                "                   | |  | |     | |/ _| | |   | |             | |  / _|           |  ___| | |          \n" +
-                                                "                   | |  | | ___ | | |_  | |__ | | ___  ___  __| | | |_ ___  _ __  |___ \\  | |__  _ __  \n" +
-                                                "                   | |/\\| |/ _ \\| |  _| | '_ \\| |/ _ \\/ _ \\/ _` | |  _/ _ \\| '__|     \\ \\ | '_ \\| '_ \\ \n" +
-                                                "                   \\  /\\  / (_) | | |   | |_) | |  __/  __/ (_| | | || (_) | |    /\\__/ / | | | | |_) |\n" +
-                                                "                    \\/  \\/ \\___/|_|_|   |_.__/|_|\\___|\\___|\\__,_| |_| \\___/|_|    \\____/  |_| |_| .__/ \n" +
-                                                "                                                                                                | |    \n" +
-                                                "                                                                                                |_|    ", ConsoleColor.DarkRed);
-                        wolfie.HealthPoints -= 5;
-                        glad.ArmWeapon.bleedCounter--;
-
-                        
-
-                        Thread.Sleep(2000);
-                        Console.Clear();
-                    }
-
-                    
-
-                    if(glad.ArmWeapon.KindOfWeapon == WeaponKind.Sword && moveSelect == "4")
-                    {
-                        
-                        glad.AbilityPoints -= Consts.LongSword.DEFAULT_COURAGE_COST;
-                        glad.Attack(wolfie);
-                        glad.ArmWeapon.Critical = Consts.LongSword.DEFAULT_LONG_SWORD_CRITICAL;
-                        wolfie.Attack(glad);
-                    }
-                    
-                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && glad.ArmWeapon.bleedChance && moveSelect == "4")
-                    {
-                        glad.ArmWeapon.bleedCounter = 3;
-                        Tools.ColorfulWriteLine("\n\n\n\n\n" +
-                                                "Your AP decrease by 5\n\n\n\n\n", ConsoleColor.Green);
-
-                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
-                        wolfie.Attack(glad);
-                    }
-                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Axe && !glad.ArmWeapon.bleedChance && moveSelect == "4")
-                    {
-                        Tools.ColorfulWriteLine("\n\n\n\n\n" +
-                                                "Your AP decrease by 5\n\n\n\n\n", ConsoleColor.Green);
-
-                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
-                        wolfie.Attack(glad);
-                    }
-
-
-                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Blunt && glad.ArmWeapon.stunChance && moveSelect == "4")
-                    {
-                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
-                        glad.Attack(wolfie);
-
-                    }
-
-                    else if (glad.ArmWeapon.KindOfWeapon == WeaponKind.Blunt && !glad.ArmWeapon.stunChance && moveSelect == "4")
-                    {
-
-                        glad.AbilityPoints -= glad.ArmWeapon.SkillCost;
-                        wolfie.Attack(glad);
-
-                    }
-
-                    else if (los > 2)
-                    {
-                        wolfie.Skill(glad);
-
-                    }
-
-                    else if (wolfie.AbilityPoints < 3)
-                    {
-                        wolfie.Charge();
-                    }
-
-                    else if (wolfie.HealthPoints < 5 && los > 2)
-                    {
-                        wolfie.Defend();
-                    }
-
-                    else
-                    {
-                        wolfie.Attack(glad);
-                    }
-
-                Found:
-                    moveSelect = null;
-
-
-
-
-
-
-                }
-
-                Tools.ColorfulWriteLine(" ____  _  _   __   __ _  __ _  ____    ____  __  ____    ____  ____  ____  ____  __  __ _   ___ \n" +
-                                        "(_  _)/ )( \\ / _\\ (  ( \\(  / )/ ___)  (  __)/  \\(  _ \\  (_  _)(  __)/ ___)(_  _)(  )(  ( \\ / __)\n" +
-                                        "  )(  ) __ (/    \\/    / )  ( \\___ \\   ) _)(  O ))   /    )(   ) _) \\___ \\  )(   )( /    /( (_ \\\n" +
-                                        " (__) \\_)(_/\\_/\\_/\\_)__)(__\\_)(____/  (__)  \\__/(__\\_)   (__) (____)(____/ (__) (__)\\_)__) \\___/\n" +
-                                        "   ____  _  _  ____    ____  ____  _  _   __                                                    \n" +
-                                        "  (_  _)/ )( \\(  __)  (    \\(  __)( \\/ ) /  \\                                                   \n" +
-                                        "    )(  ) __ ( ) _)    ) D ( ) _) / \\/ \\(  O )                                                  \n" +
-                                        "   (__) \\_)(_/(____)  (____/(____)\\_)(_/ \\__/                                                   \n", ConsoleColor.Green);
-
-                Console.WriteLine("\n\n\n\n\n\n\n\n\n" +
-                                  "\t\t\t\t\t\t\t\tCreated by Maksymilian Wrobel");
-
-                Thread.Sleep(6000);
-                Console.Clear();
-                string select= null;
-                while (select != "y" && select != "n")
-                {
-                    Tools.ColorfulWriteLine("Start again ? (y/n)", ConsoleColor.DarkGray);
-                    select = Console.ReadLine();
-                }
-
-                if (select == "y")
-                {
-                    Console.Clear();
+                MainMenu:
                     continue;
+
+
+
+
                 }
-                
 
-                else
-                    gameOver = false;
-                
+                Arts.DemoArt();
+                Thread.Sleep(1500);
+            }
+            catch (Exception ex)
+            {
 
-                
-
-
-
-
-
-
+                Console.WriteLine(ex.Message);
             }
 
-            
         }
     }
 }

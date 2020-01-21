@@ -69,7 +69,7 @@ namespace Weapons
                               $"Name of weapon: {this.ToString()}\n" +
                               $"Damage: {Consts.Hammer.DEFAULT_HAMMER_DAMAGE}\n" +
                               $"Critical: {Consts.Hammer.DEFAULT_HAMMER_CRITICAL}\n" +
-                              $"Special skill: Stun - Some chance to taking a round from the opponent");
+                              $"Special skill: Stun - Some chance to taking a round from the opponent\n");
         }
     }
 }
